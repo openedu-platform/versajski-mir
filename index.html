@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programirano učenje</title>
+  
+<link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+<div id="overlay-blocker"></div>
+<div id="container" class="nezna-pozadina">
+  <h3 id="lesson-title" style="color:blue;">...</h3>
+  <h4 id="lesson-part-title" style="color:green;">...</h4>
+  <div id="controls">
+    <!-- Jezik i zastave -->
+    <span id="languages" title="Promena jezika">
+      <img id="flag-sr" src="flags/sr.svg" alt="srpski" title="Srpski" data-lang="sr" />
+      <img id="flag-en" src="flags/gb.svg" alt="english" title="English" data-lang="en" />
+      <img id="flag-de" src="flags/de.png" alt="Deutsch" title="Deutsch" data-lang="de" />
+      <img id="flag-it" src="flags/it.png" alt="Italiano" title="Italiano" data-lang="it" />
+      <img id="flag-fr" src="flags/fr.png" alt="Français" title="Français" data-lang="fr" />
+      <img id="flag-ru" src="flags/ru.png" alt="Русский" title="Русский" data-lang="ru" />
+      <img id="flag-es" src="flags/es.svg" alt="Español" title="Español" data-lang="es" />
+      <img id="flag-sl" src="flags/sl.svg" alt="Slovenski" title="Slovenski" data-lang="sl" />
+    </span>
+
+ <div class="separator"></div>
+
+    <!-- Zvucni efekti ON/OFF -->
+    <img id="sound-toggle" src="icons/sound-on.png" alt="Zvuk" />
+
+    <!-- IOP dugmad -->
+    <button id="btn-font-plus" title="Povećaj font">A+</button>
+    <button id="btn-font-reset" title="Resetuj font"> A </button>
+    <button id="btn-bg-toggle">P</button>
+
+    <button id="micBtn" title="ASR - Automatsko prepoznavanje govora" class="icon-btn">🎤 Mic</button>
+    <!-- Talk je čitanje teksta tj. lekcije, ili pitanja sa ponuđenim odgovorima. Ovo funkcioniše samo ako je instalirana takva podrška za taj jezik (Preferred languages) -->
+    <img id="talk-text" src="icons/talk-text.png" alt="Čitanje teksta" title="Čitanje teksta">
+    <button id="pauseTalkBtn" alt="Pause" title="Pause">⏸️</button>
+    <button id="stopTalkBtn" alt="Stop" title="Stop">⏹️</button>
+    <select id="speedTalkControl">
+      <option value="0.3">0.3x</option>
+      <option value="0.4">0.4x</option>
+      <option value="0.5">0.5x</option>
+      <option value="0.6">0.6x</option>
+      <option value="0.7">0.7x</option>
+      <option value="0.8">0.8x</option>
+      <option value="0.9" selected>0.9x</option>
+      <option value="1.0">1.0x</option>
+      <option value="1.1">1.1x</option>
+      <option value="1.2">1.2x</option>
+      <option value="1.3">1.3x</option>
+      <option value="1.4">1.4x</option>
+      <option value="1.5">1.5x</option>
+      <option value="1.6">1.6x</option>
+      <option value="1.7">1.7x</option>
+      <option value="1.8">1.8x</option>
+      <option value="1.9">1.9x</option>
+      <option value="2.0">2.0x</option>
+      <option value="2.1">2.1x</option>
+    </select>
+
+  </div>
+
+  <div id="theory-section">
+    <p id="theory-text"></p>
+    <img id="theory-image" src="" alt="" />
+    <iframe width="502" height="278" id="theory-video" src="" title="video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p>  <button id="theory-next-btn">Dalje</button>   </p>
+  </div>
+
+  <div id="quiz-section" style="display:none;">
+    <div id="question-container">
+      <h3 id="question-text"></h3>
+      <img id="question-image" src="" alt="" />
+      <div id="answers-container"></div>
+      <div id="feedback"></div>
+      <button id="quiz-next-btn" disabled>Dalje</button>
+    </div>
+  </div>
+
+<p id="output2">Čuo sam: .....</p>
+<p id="status">Status je: ...</p>
+  
+<span id="asr-indicator"></span>
+  <footer id="footer-auth">
+    <p id="footer-section">autor projekta 00:33 4.maj26.<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p>
+  </footer>
+
+</div>
+
+
+<script>
+(() => {
+  // --- PODACI LEKCIJE NA VIŠE JEZIKA (Srpski, English, Deutsch) ---
+  // lekcije sam premestio u posebne fajlove, pa ih ucitavam - vidi onload()
+  
+  // --- KLASA INTERFEJS, t.j. PREVODI INTERFEJSA NA VIŠE JEZIKA, (Srpski, English, Deutsch...) --- ali poruke/ui-messages i tts-text su posebne klase
+  const user_interface = {  // ---klasa user_interface...
+      sr: //zbog prevoda interfejsa na srpski 
+      {
+        dalje: "Dalje",
+        pokreni: "Dalje",
+        pocniKviz: "Počnite kviz",
+        tacno: ["Tačno!", "Tačno! Bravo!", "Tačno! Odlično napreduješ.", "Tačno! Samo napred!", "Tačno! Sjajano!", "Tačno! Super!", "Tačno! Tako je!", "Tačnan odgovor! Divno!"],
+        netacno: ["Neačno.", "Netačno, pokušaj ponovo.", "Netačno, ali možeš ti to!", "Netačno, ne odustaj!", "Netačno, probaj ponovo, uspećeš!"],
+        zvuk_ukljucen: "Zvuk uključen",
+        zvuk_iskljucen: "Zvuk isključen",
+        povecaj_font: "Povećaj font",
+        resetuj_font: "Resetuj font",
+        pozadina: "P", /* Pozadina */
+        citanje: "Čitanje teksta"
+      },   //kraj interface.sr
+      
+      en:  //zbog prevoda interfejsa na engleski
+      {   // --- class user_interface.en, is an app user interface in English --- 
+        dalje: "Next",
+        pokreni: "Next", //bilo je pokreni: "Start quiz",
+        pocniKviz: "Start quiz",
+        tacno: ["Correct!", "Correct! Well done!", "Correct! You’re making great progress.", "Correct! Keep it up!", "Correct! Excellent!", "Correct! Super!", "Correct! That’s right!", "Correct answer! Wonderful!"],
+        netacno: ["Incorrect.", "Incorrect, try again.", "Incorrect, but you can do it!", "Incorrect, don’t give up!", "Incorrect, try again, you’ll succeed!"],
+        zvuk_ukljucen: "Sound ON",
+        zvuk_iskljucen: "Sound OFF",
+        povecaj_font: "Increase font",
+        resetuj_font: "Reset font",
+        pozadina: "Background",
+        citanje: "Talk text"
+      },   //kraj klase user_interface.en, prevod na engleski
+  
+      de: 
+      {  //prevoda interfejsa na nemački (german) - Dies ist auf die Übersetzung der Schnittstelle ins Deutsche zurückzuführen german
+        dalje: "Weiter",
+        pokreni: "Weiter", //bilo je pokreni: "Quiz starten",
+        pocniKviz: "Quiz starten",
+        tacno: ["Richtig!", "Richtig! Bravo!", "Richtig! Du machst große Fortschritte.", "Richtig! Weiter so!", "Richtig! Ausgezeichnet!", "Richtig! Super!", "Richtig! Genau so!", "Richtige Antwort! Wunderbar!"],
+        netacno: ["Falsch.", "Falsch, versuch es noch einmal.", "Falsch, aber du schaffst das!", "Falsch, gib nicht auf!", "Falsch, versuch es noch einmal, du wirst es schaffen!"],
+        zvuk_ukljucen: "Ton EIN",
+        zvuk_iskljucen: "Ton AUS",
+        povecaj_font: "Schrift vergrößern",
+        resetuj_font: "Schrift zurücksetzen",
+        pozadina: "Hintergrund",
+        citanje: "Text vorlesen"
+      },   //kraj klase user_interface.de
+      
+      it: 
+      {   // --- class user_interface.it - per la traduzione dell'interfaccia in Italiano
+        dalje: "Avanti",
+        pokreni: "Avvia", //prima era "Start quiz",
+        pocniKviz: "Inizia il quiz",
+        tacno: ["Corretto!", "Corretto! Bravo!", "Corretto! Stai facendo grandi progressi.", "Corretto! Continua così!", "Corretto! Eccellente!", "Corretto! Super!", "Corretto! Esatto!", "Risposta corretta! Meraviglioso!"],
+        netacno: ["Sbagliato.", "Sbagliato, riprova.", "Sbagliato, ma ce la puoi fare!", "Sbagliato, non mollare!", "Sbagliato, riprova, ci riuscirai!"],
+        zvuk_ukljucen: "Suono ON",
+        zvuk_iskljucen: "Suono OFF",
+        povecaj_font: "Aumenta carattere",
+        resetuj_font: "Ripristina carattere",
+        pozadina: "Sfondo",
+        citanje: "Leggi testo"
+      },   //fine della classe user_interface.it   
+          
+      fr: 
+      {   // --- class user_interface.fr - user interface in French --- 
+        dalje: "Suivant",
+        pokreni: "Commencer", 
+        pocniKviz: "Commencer le quiz",
+        tacno: ["Correct!", "Correct! Bravo!", "Correct! Tu fais de grands progrès.", "Correct! Continue comme ça!", "Correct! Excellent!", "Correct! Super!", "Correct! C’est ça!", "Bonne réponse! Merveilleux!"],
+        netacno: ["Incorrect.", "Incorrect, essaie encore.", "Incorrect, mais tu peux le faire!", "Incorrect, n’abandonne pas!", "Incorrect, réessaie, tu vas réussir!"],
+        zvuk_ukljucen: "Son ACTIVÉ",
+        zvuk_iskljucen: "Son DÉSACTIVÉ",
+        povecaj_font: "Augmenter la police",
+        resetuj_font: "Réinitialiser la police",
+        pozadina: "Fond",
+        citanje: "Lire le texte"
+      },  //end for class user_interface.fr 
+        
+      ru: 
+      {   // --- user_interface.ru - user interface in Russian --
+        dalje: "Далее",
+        pokreni: "Далее",
+        pocniKviz: "Начать викторину",
+        tacno: ["Верно!", "Верно! Браво!", "Верно! Отличный прогресс.", "Верно! Так держать!", "Верно! Прекрасно!", "Верно! Супер!", "Верно! Именно так!", "Правильный ответ! Замечательно!"],
+        netacno: ["Неверно.", "Неверно, попробуй ещё раз.", "Неверно, но у тебя получится!", "Неверно, не сдавайся!", "Неверно, попробуй снова, и всё получится!"],
+        zvuk_ukljucen: "Звук ВКЛ",
+        zvuk_iskljucen: "Звук ВЫКЛ",
+        povecaj_font: "Увеличить шрифт",
+        resetuj_font: "Сбросить шрифт",
+        pozadina: "Фон",
+        citanje: "Читать текст"
+      },  //end for class user_interface.ru,  in Russian -
+         
+      es: 
+      {   // --- class user_interface.es - user interface in Spanish ---
+        dalje: "Siguiente",
+        pokreni: "Comenzar", 
+        pocniKviz: "Iniciar la prueba",
+        tacno: ["¡Correcto!", "¡Correcto! ¡Bravo!", "¡Correcto! Estás progresando muy bien.", "¡Correcto! ¡Sigue así!", "¡Correcto! ¡Excelente!", "¡Correcto! ¡Súper!", "¡Correcto! ¡Así es!", "¡Respuesta correcta! ¡Maravilloso!"],
+        netacno: ["Incorrecto.", "Incorrecto, inténtalo de nuevo.", "Incorrecto, ¡pero tú puedes lograrlo!", "Incorrecto, ¡no te rindas!", "Incorrecto, inténtalo otra vez, ¡lo lograrás!"],
+        zvuk_ukljucen: "Sonido ON",
+        zvuk_iskljucen: "Sonido OFF",
+        povecaj_font: "Aumentar fuente",
+        resetuj_font: "Restablecer fuente",
+        pozadina: "Fondo",
+        citanje: "Leer texto"
+      },  //end for class user_interface.es,  in Spanish ---
+        
+      sl: 
+      {  // --- class user_interface.sl - user interface in Slovenian ---
+        dalje: "Naprej",
+        pokreni: "Začni", 
+        pocniKviz: "Začni kviz",
+        tacno: ["Pravilno!", "Pravilno! Bravo!", "Pravilno! Odlično napreduješ.", "Pravilno! Kar tako naprej!", "Pravilno! Odlično!", "Pravilno! Super!", "Pravilno! Tako je!", "Pravilen odgovor! Čudovito!"],
+        netacno: ["Napačno.", "Napačno, poskusi znova.", "Napačno, ampak ti to zmoreš!", "Napačno, ne odnehaj!", "Napačno, poskusi znova, uspelo ti bo!"],
+        zvuk_ukljucen: "Zvok VKLOPLJEN",
+        zvuk_iskljucen: "Zvok IZKLOPLJEN",
+        povecaj_font: "Povečaj pisavo",
+        resetuj_font: "Ponastavi pisavo",
+        pozadina: "Ozadje",
+        citanje: "Preberi besedilo"
+      },   //end for class user_interface.sl, in Slovenian ---
+
+       //------Odavde pa na dole je MOŽDA MAĐARSKI, hrvatski, makedonski ....  
+  }; //KRAJ za klasu user-INTERFACE ---- ali bez ui-poruka, i bez tts-tekstova, oni su u nastavku... 
+
+
+  const ui_messages = {  // ---klasa ui_messages... poruke koje prikazuje aplikacija korisniku, mora biti prevedena na iste jezike kao i dugmici i sve ostalo
+    sr: //BILO lekcije[trenutniJezik].obavestenjeAlert, A SADA ui_messages[trenutniJezik]
+      {
+        komentarKrajKviza: "Završili ste ovaj kviz.",
+        komentarTeorijaPonovo: "Molim Vas da pročitate teorijski deo ponovo.",
+        txtTacnih: "Tačnih: ",
+        txtNetacnih: "Netačnih: ",
+        txtNastaviti: "Molim Vas da nastavite sa učenjem sledećeg dela lekcije.",
+        txtKrajLekcije: "Kraj ove lekcije! Čestitam!!!"
+      },   //kraj za sr:
+
+    en: 
+      {
+        komentarKrajKviza: "You have completed this quiz.",
+        komentarTeorijaPonovo: "Please, read the theory again.",
+        txtTacnih: "Correct: ",
+        txtNetacnih: "Incorrect: ",
+        txtNastaviti: "Please continue with the next part of the lesson.",
+        txtKrajLekcije: "Congratulations! You’ve successfully completed this lesson!"
+      },   //kraj za en:
+
+    de: //----Hier beginnt DEUTSCH fur ui_messages ----
+      {
+        komentarKrajKviza: "Sie haben dieses Quiz abgeschlossen.",
+        komentarTeorijaPonovo: "Bitte lesen Sie die Theorie noch einmal.",
+        txtTacnih: "Richtig: ",
+        txtNetacnih: "Falsch: ",
+        txtNastaviti: "Bitte machen Sie mit dem nächsten Teil der Lektion weiter.",
+        txtKrajLekcije: "Herzlichen Glückwunsch! Du hast diese Lektion erfolgreich abgeschlossen!"
+      },   //kraj de:
+
+    it: //INIZIO IN ITALIANO
+      {
+        komentarKrajKviza: "Hai completato questo quiz.",
+        komentarTeorijaPonovo: "Per favore, rileggi la teoria.",
+        txtTacnih: "Corrette: ",
+        txtNetacnih: "Errate: ",
+        txtNastaviti: "Per favore continua con la parte successiva della lezione.",
+        txtKrajLekcije: "Congratulazioni! Hai completato con successo questa lezione!"
+      }, 
+        
+    fr: // ui-messages in French 
+      {    
+        komentarKrajKviza: "Vous avez terminé ce quiz.",
+        komentarTeorijaPonovo: "Veuillez relire la théorie.",
+        txtTacnih: "Correct : ",
+        txtNetacnih: "Incorrect : ",
+        txtNastaviti: "Veuillez continuer avec la prochaine partie de la leçon.",
+        txtKrajLekcije: "Félicitations ! Vous avez terminé cette leçon avec succès !"
+      },
+       
+    ru: // ui-messages in Russian
+      {
+        komentarKrajKviza: "Вы завершили этот тест.",
+        komentarTeorijaPonovo: "Пожалуйста, прочтите теорию снова.",
+        txtTacnih: "Верно: ",
+        txtNetacnih: "Неверно: ",
+        txtNastaviti: "Пожалуйста, продолжайте со следующей частью урока.",
+        txtKrajLekcije: "Поздравляю! Вы успешно завершили этот урок!"
+      },
+
+    es: 
+      {    // ui-messages in Spanish ---
+        komentarKrajKviza: "Has completado este cuestionario.",
+        komentarTeorijaPonovo: "Por favor, lee la teoría nuevamente.",
+        txtTacnih: "Correcto: ",
+        txtNetacnih: "Incorrecto: ",
+        txtNastaviti: "Por favor, continúa con la siguiente parte de la lección.",
+        txtKrajLekcije: "¡Felicidades! Has completado esta lección con éxito."
+      },
+
+    sl:
+      {  // ui-messages in Slovenian ---
+        komentarKrajKviza: "Dokončali ste ta kviz.",
+        komentarTeorijaPonovo: "Prosim, preberite teorijo še enkrat.",
+        txtTacnih: "Pravilno: ",
+        txtNetacnih: "Napačno: ",
+        txtNastaviti: "Prosim, nadaljujte z naslednjim delom lekcije.",
+        txtKrajLekcije: "Čestitke! Uspešno si zaključil to lekcijo!"
+      },
+  
+       //------dovde je SLOVENAČKI
+       //------Odavde pa na dole je MOŽDA MAĐARSKI, hrvatski, makedonski ....
+
+  }; //KRAJ za klasu ui_messages ----
+
+
+  // --- TTS-text (Srpski, English, Deutsch) ---
+  const tts_addition_text = {  // ---klasa lekcije... ovo nije niz već klasa, na pr. typeof lekcije[0] daje undefined, ali typeof lekcije["sr"] daje object
+  // Delovi teksta koji se izgovaraju prilikom čitanja teksta Talk... da bi bilo jasnije i prirodnije
+  
+   sr: 
+   { // in Serbian
+      txtPredPitanje: " Pitanje je... - ",
+      txtPredOdgovore: " Izaberite jedan od ponuđenih odgovora... - "
+    },
+    
+    en:
+    { // in English
+      txtPredPitanje: " The question is... - ",
+      txtPredOdgovore: " Please choose one of the offered answers... - "
+    },
+     
+    de: 
+    {  // Hier beginnt DEUTSCH
+      txtPredPitanje: " Die Frage lautet... - ",
+      txtPredOdgovore: " Bitte wählen Sie eine der angebotenen Antworten... - "
+    },
+     
+    it: 
+    { //Da qui è ITALIANO. Italian
+      txtPredPitanje: " La domanda è... - ",
+      txtPredOdgovore: " Scegli una delle risposte offerte... - "
+    },
+     
+    fr: 
+    { // in French
+      txtPredPitanje: " La question est... - ",
+      txtPredOdgovore: " Veuillez choisir une des réponses proposées... - "
+    },
+     
+    ru: 
+    { //  in Russian 
+      txtPredPitanje: " Вопрос... - ",
+      txtPredOdgovore: " Пожалуйста, выберите один из предложенных вариантов... - "
+    },
+       
+    es: 
+    { // in Spanish
+      txtPredPitanje: " La pregunta es... - ",
+      txtPredOdgovore: " Por favor, elige una de las respuestas ofrecidas... - "
+    },
+      
+    sl: 
+    { // in Slovenian
+      txtPredPitanje: " Vprašanje je... - ",
+      txtPredOdgovore: " Prosimo, izberite enega od ponujenih odgovorov... - "
+    }, //sl
+  }; // end for const tts_addition_text
+
+
+//------------------------------------------------------------------------------------------------
+
+  // --- GLOBALNE PROMENLJIVE ---
+//  let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)(); // Inicijalizacija ASR //zbog ASR - Automatsko prepoznavanje govora / stavio sam u const kaoinicijalizaciju
+//    recognition.interimResults = false; //interimResults = true → dok govorimo, odmah će se pojavljivati tekst... interimResults = false → neće pisati ništa dok ne završiš rečenicu → onda će odjednom ispisati ceo tekst.   
+//    recognition.continuous = true; //true, da učenik može stalno da govori tokom lekcije – ne mora da klika svaki put da bi govorio  
+
+// --- ASR (Automatsko prepoznavanje govora) ---
+// Stabilizovana verzija koja se ne isključuje i ne traži ponovo dozvolu mikrofona
+let recognition;
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SpeechRecognition();
+  recognition.continuous = true;        // stalno sluša, bez prekida
+  recognition.interimResults = false;     // bilo false, čeka kraj rečenice pre slanja rezultata
+  recognition.maxAlternatives = 1;      // samo jedan najbolji rezultat, moze 2 ili 3 sa nizovima
+  recognition.lang = 'sr-RS';           // možeš kasnije menjati pri promeni jezika
+} else {
+  alert("Vaš browser ne podržava automatsko prepoznavanje govora (ASR).");
+}
+
+  let trenutniJezik = 'sr'; //set default language
+  let currentLessonFile = "racunarstvo/introductionComputerScience.json";  // VAZNO!!! Putanja do fajla sa sadrzajem lekcije, DODAO 2.MAJA26
+  let lekcije = null;                                                   // VAZNO!!! POCETNA VREDNOST POKAZIVACA NA SADRZAJ FAJLA SA LEKCIJOM, dodao 2.maja26.
+  let response = null;
+  let trenutniDeoLekcije = 0; //za deloviLekcije[trenutniDeoLekcije]
+  let trenutnoTeorijsko = 0;
+  let trenutnoPitanje = null;
+  let tacnoOdgovorenih = 0;
+  let netacnoOdgovorenih = 0;
+  let efektiUkljuceni = true;
+  let pozadinaUkljucena = true;
+  let boolTeorijskiDeo = true;
+  let tekstZaCitanje = ''; 
+  let btnAnswers = []; //niz - ponudjeni odgovori na postavljeno pitanje 
+  let aktivanASR = false; //korisnik može uključiti i isključiti ASR, po želji 
+  let transcript; //prihvata ASR govor u tekst
+  let flagTalking = false; // semafor: da ignoriše ASR dok TTS govori
+  let isTalkPaused = false; // pocetno - TTS Talk nije pauziran, pomocu btn se pauzira
+  let NoProlaza = 0;
+
+  // Document Object Model (DOM) ELEMENTI. Oni omogućuju JavaScript-u pristup i rad sa HTML sadržajem unutar elementa.
+  const defaultLang = "sr";   // default language je srpski, ako je neki drugi, dovoljno je samo ovde promeniti!
+  const naslovEl = document.getElementById('lesson-title');
+  const naslovDelaLekcEl = document.getElementById('lesson-part-title');
+
+  const teorijaTekstEl = document.getElementById('theory-text');
+  const teorijaSlikaEl = document.getElementById('theory-image');
+  const teorijaVideoEl = document.getElementById('theory-video');
+  const theoryNextBtn = document.getElementById('theory-next-btn');
+  const quizSection = document.getElementById('quiz-section');
+  const theorySection = document.getElementById('theory-section');
+  const questionTextEl = document.getElementById('question-text');
+  const questionImageEl = document.getElementById('question-image');//za sliku koja ide uz pitanje
+    questionImageEl.height = "100"; 			//visina slike koja ide uz pitanja
+  const answersContainer = document.getElementById('answers-container');
+  const feedbackEl = document.getElementById('feedback');
+  const QuizNextBtn = document.getElementById('quiz-next-btn');
+  const soundToggle = document.getElementById('sound-toggle');
+  const talkText = document.getElementById('talk-text');
+  const micBtn = document.getElementById("micBtn");
+  const pauseTalkBtn = document.getElementById('pauseTalkBtn');
+  const stopTalkBtn = document.getElementById('stopTalkBtn');
+  const speedTalkControl = document.getElementById('speedTalkControl');
+
+  // IOP dugmad
+  const btnFontPlus = document.getElementById('btn-font-plus');
+  const btnFontReset = document.getElementById('btn-font-reset');
+  const btnBgToggle = document.getElementById('btn-bg-toggle');
+
+  const messageContainer = document.createElement("div"); //za poruke umesto Alert-a
+  messageContainer.id = "messageContainer";
+  document.body.appendChild(messageContainer);
+    // SVG opensource ikonice "tačno", "netačno", "info"
+  const icons = {
+    check: `<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='3' viewBox='0 0 24 24'><path d='M5 13l4 4L19 7'/></svg>`,
+    info: `<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10'/><line x1='12' y1='17' x2='12' y2='11'/><line x1='12' y1='9' x2='12' y2='7'/></svg>`,
+    cross: `<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='3' viewBox='0 0 24 24'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>`
+  };
+
+
+const output2 = document.getElementById("output2"); // za prikaz govora, proba samo ,,,
+const status = document.getElementById("status"); // za status govora, proba samo ,,,
+const indicator = document.getElementById("asr-indicator"); // za status govora, proba samo ,,,
+output2.style.display = 'none';
+status.style.display = 'none';
+indicator.style.display = 'none';
+
+  //----------------------------------------------------------------------------------------------------------
+
+  // --- FUNKCIJE ---
+  function updateTexts() {   // --- d preuzima prevode dugmića i interfejsa na trenutnom jeziku, potom se menja tekst i title na dugmićima i ikonama
+    const d = user_interface[trenutniJezik];  // ..................... NOVO SA KLASOM user_interface
+    if (trenutnoTeorijsko === lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].teorija.length) {      
+      theoryNextBtn.innerHTML = user_interface[trenutniJezik].pocniKviz; //= user_interface[trenutniJezik].pocniKviz;
+      //theoryNextBtn je DOM-elem. preth. povezan sa HTML-elem. button, pomoću id:"theory-next-btn". To dugme je u div kome je id:"theory-section", na dnu div-a.
+    } else {
+      theoryNextBtn.innerHTML = user_interface[trenutniJezik].pokreni; //pokreni: "Dalje", pocniKviz: "Počnite kviz", prevodi - analogno tome
+    };
+    theoryNextBtn.disabled = false;
+    boolTeorijskiDeo = true;
+    QuizNextBtn.innerHTML = d.dalje;
+    btnBgToggle.innerHTML = d.pozadina;
+    btnBgToggle.title = d.pozadina;
+    btnFontPlus.title = d.povecaj_font;
+    btnFontReset.title = d.resetuj_font;
+    soundToggle.title = efektiUkljuceni ? d.zvuk_ukljucen : d.zvuk_iskljucen;
+    talkText.title = d.citanje;
+    document.title = lekcije[trenutniJezik].naslovProzora + " - " + lekcije[trenutniJezik].naslov;
+  }
+
+  function prikaziTeoriju() {
+    let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
+    naslovEl.innerHTML = lekcija.naslov;
+    document.getElementById("footer-auth").innerHTML = lekcije.meta.license + " 4.maj26. 00:33";
+      //"<p id="footer-section">autor projekta<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p> 🙂";
+    //naslovEl.innerHTML = lekcije.meta.license; // BRISII
+    //alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lekcije["en"].naslov+". licenca: "+lekcije.meta.license); // BRISII... copy +lekcije.meta.license
+    naslovDelaLekcEl.innerHTML = lekcija.deloviLekcije[trenutniDeoLekcije].nazivDelaLekcije;
+    let deo = lekcija.deloviLekcije[trenutniDeoLekcije].teorija[trenutnoTeorijsko];
+    teorijaTekstEl.innerHTML = deo.tekst;  //umesto teorijaTekstEl.textContent = deo.tekst; textContent prikaže \n... sa InnerHTML imamo nov red itd.
+    teorijaSlikaEl.src = deo.slika;
+    teorijaVideoEl.src = deo.video;
+    if (deo.slika === "") {    //Ako se za putanju i naziv slike stavi "", onda ne treba ni prikazati HTML element koji sadrži sliku
+      teorijaSlikaEl.style.display = 'none';            
+    } else {
+      teorijaSlikaEl.style.display = 'block';
+      teorijaSlikaEl.alt = "Slika: " + deo.slika; //Ako putanja i naziv slike postoje, ali slika sa tim nazivom u tom folder ne postoji
+    }
+    if (deo.video === "") {    //Ako se za video stavi "", onda ne treba ni prikazati HTML element koji sadrži sliku
+      teorijaVideoEl.style.display = 'none';            
+    } else {
+      teorijaVideoEl.style.display = 'block';
+      teorijaVideoEl.alt = "Video... " + deo.video; //Ako naziv videa postoji, ali taj video ne postoji
+    }
+    feedbackEl.innerHTML = '';
+    theoryNextBtn.disabled = false;
+    if (trenutnoTeorijsko === lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].teorija.length-1) {
+      theoryNextBtn.innerHTML = user_interface[trenutniJezik].pocniKviz;
+    } else {
+      theoryNextBtn.innerHTML = user_interface[trenutniJezik].pokreni;
+    }
+    quizSection.style.display = 'none';
+    theorySection.style.display = 'block';
+    boolTeorijskiDeo = true;
+    tekstZaCitanje = deo.tekst;
+    flagTalking = false;
+  }
+
+  function prikaziSledecuTeoriju() {
+    trenutnoTeorijsko++;
+    boolTeorijskiDeo = true;
+    if (trenutnoTeorijsko >= lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].teorija.length) {
+      trenutnoTeorijsko = 0;
+      pocniKviz();
+    } else {
+      if (trenutnoTeorijsko === lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].teorija.length-1) {
+         theoryNextBtn.innerHTML = user_interface[trenutniJezik].pocniKviz; //= user_interface[trenutniJezik].pocniKviz;
+      } else {
+        theoryNextBtn.innerHTML = user_interface[trenutniJezik].pokreni;
+      }
+      prikaziTeoriju();
+    }
+  }
+
+  function pocniKviz() {
+    theorySection.style.display = 'none';  // --- Prikazani su ili theorySection ili quizSection, def. su ranije u style
+    quizSection.style.display = 'block';   // --- i ovo ide zajedno... prikazuje quizSection a ne theorySection
+    trenutnoPitanje = 0;
+    tacnoOdgovorenih = 0; //counter broja tačnih odgovora 
+    netacnoOdgovorenih = 0; //analogno za netačne odgovore
+    boolTeorijskiDeo = false;
+    prikaziPitanje(trenutnoPitanje);
+  }
+  
+  function prikaziPitanje(idx) {  //idx je broj trenutnog pitanja 0,1,2,3, tj. počinje od 0
+    feedbackEl.innerHTML = '';
+    QuizNextBtn.disabled = true;
+    boolTeorijskiDeo = false;
+    const pitanje = lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].pitanja[idx];
+    questionTextEl.innerHTML = pitanje.tekst;
+    questionImageEl.src = pitanje.slika;
+    if (pitanje.slika === "") {    //komentari kao za sliku za teoriju u funkciji prikaziTeoriju
+      questionImageEl.style.display = 'none';            
+    } else {
+      questionImageEl.style.display = 'block';
+      //questionImageEl.alt = "Slika: " + pitanje.slika; brisati ili prevoditi
+    }
+    //questionImageEl.alt = "Slika pitanja"; brisati ili prevoditi
+    //priprema teksta za čitanje za Talk
+    const d = tts_addition_text[trenutniJezik];
+    tekstZaCitanje = d.txtPredPitanje + pitanje.tekst + d.txtPredOdgovore;
+
+    answersContainer.innerHTML = '';
+    btnAnswers.length = 0; //isprazni niz, tj. vrši pripremu za novi niz dugmica za odgovore
+    pitanje.odgovori.forEach((odg, i) => { //petlja prolazi kroz ponuđene odgovore
+      btnAnswers[i] = document.createElement('button');  //btnAnswers[] je globalna promenljiva
+      btnAnswers[i].innerHTML = odg;
+      tekstZaCitanje = tekstZaCitanje + ' ' + (i+1) + ': ' + odg + ', ';
+      btnAnswers[i].className = 'answer-btn';
+      btnAnswers[i].dataset.tacno = pitanje.tacni[i];  // "true" ili "false" - ovde vezujemo tačnost odgovora direktno za dugme
+      btnAnswers[i].onclick = () => proveriOdgovor(i);
+      answersContainer.appendChild(btnAnswers[i]);
+    });
+    flagTalking = false;
+  }
+
+  function proveriOdgovor(odgIndex) {
+    //alert("Izabran je odgovor>>>> " + odgIndex);
+    btnAnswers[odgIndex].style.background="#d0e7ff"; //menja boju, da ostane, da bi se videlo koje dugme je korisnik izavrao
+    const pitanje = lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].pitanja[trenutnoPitanje];
+    const tacan = pitanje.tacni[odgIndex];
+    const d = user_interface[trenutniJezik];
+
+    if (tacan) {
+      const poruke = d.tacno;  //tacno je niz poruka za podršku i podsticaj, od kojih biramo jednu na slučajan način
+      const randomIndex = Math.floor(Math.random() * poruke.length);  //biramo slučajan broj 0, 1, 2... do (duzina_niza-1)
+      feedbackEl.textContent = poruke[randomIndex];
+      if (aktivanASR) { // ako je ASR aktiviran onda ce procitati motivacionu poruku
+        tekstZaCitanje = poruke[randomIndex];
+        speakCurrent();
+      }
+      
+      btnAnswers[odgIndex].classList.add("correctAnsw"); // izabrani odgovor boji u zeleno pošto je tačno odgovoreno
+      tacnoOdgovorenih++;
+      if(efektiUkljuceni) {
+        playSound(true);
+      }
+    } else {
+      const poruke = d.netacno;  //netacno je niz motivišućih i ohrabrujućih poruka, od kojih jednu biramo na slučajan način
+      const randomIndex = Math.floor(Math.random() * poruke.length);  //biramo slučajan broj 0, 1, 2... do (duzina_niza-1)
+      feedbackEl.textContent = poruke[randomIndex];   
+      if (aktivanASR) { // ako je ASR aktiviran onda ce procitati motivacionu poruku
+        tekstZaCitanje = poruke[randomIndex];
+        speakCurrent();
+      }        
+       
+      btnAnswers[odgIndex].classList.add("incorrectAnsw"); // izabrani odgovor boji crveno pošto je netačno odgovoreno
+      netacnoOdgovorenih++;
+        
+        // Pronađi i obeleži tačan odgovor i oboji ga sa zeleno-belim linijama (repeating-linear-gradient), da se ukaže šta je bilo tačno (učenje na greškama)
+      document.querySelectorAll("#container .answer-btn").forEach(b => {
+        if (b.dataset.tacno === "true") {
+          b.classList.add("correct-highlight"); // ovde se koristi šara zeleno-bela
+        }
+      });
+           
+      if(efektiUkljuceni) {
+        playSound(false);
+      }
+    }
+    QuizNextBtn.disabled = false;
+    
+    // Zaključaj sve dugmiće. tj zaključaj sve odgovore, da se onemogući korisniku biranje više odgovora od jednog
+    const buttons = document.querySelectorAll("#container .answer-btn");
+    buttons.forEach(btnAnswers => {
+      btnAnswers.classList.add("disabled");
+    });
+ 
+    trenutnoPitanje = lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].pitanja[trenutnoPitanje].grananje[odgIndex];
+  }
+
+  function idiNaSledecePitanje() {
+    boolTeorijskiDeo = false;
+    const pitanje = lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].pitanja[trenutnoPitanje];
+    // ....ide sledeće pitanje na osnovu izabranog odgovora
+    //const c = lekcije[trenutniJezik].obavestenjeAlert;  //bilo je a od sada.................................................... ui_messages[trenutniJezik]
+    const c = ui_messages[trenutniJezik];
+    if (trenutnoPitanje >= lekcije[trenutniJezik].deloviLekcije[trenutniDeoLekcije].pitanja.length) {
+      trenutniDeoLekcije++; //priprema da ide na sledeći deo lekcije, ako postoji :) 
+
+      if (trenutniDeoLekcije != (lekcije[trenutniJezik].deloviLekcije.length)) {
+        //bilo je: alert(c.komentarKrajKviza + `\n` + c.txtTacnih + `${tacnoOdgovorenih}\n` + c.txtNetacnih + `${netacnoOdgovorenih}` + `\n`  + `\n` + c.txtNastaviti);
+        // Primer: više poruka jedna za drugom...
+        async function showAllMessages() {       
+          await showMessage(c.komentarKrajKviza + `\n` + c.txtTacnih + ` ${tacnoOdgovorenih}\n` + c.txtNetacnih + ` ${netacnoOdgovorenih}`, "green", "check");
+          await showMessage(c.txtNastaviti, "blue", "info");
+          //await showMessage("Pokušajte ponovo sa pitanjem broj 2.", "red", "cross");   
+          trenutnoPitanje = 0;
+          trenutnoTeorijsko = 0;
+          prikaziTeoriju();    
+        } 
+        showAllMessages();
+      } else {
+        async function showAllMessages() {       
+          await showMessage(c.komentarKrajKviza + `\n` + c.txtTacnih + `${tacnoOdgovorenih}\n` + c.txtNetacnih + `${netacnoOdgovorenih}`, "green", "check");
+          await showMessage(c.txtKrajLekcije, "blue", "info");
+          alert('SUPER !!! ' + c.txtKrajLekcije);
+          location.reload(); //Refrešuje ekran i tako se vraća na početak cele lekcije, pošto je korisnik ZAVRŠIO SVE
+        } 
+        showAllMessages();
+      };
+    } else {
+      if (trenutnoPitanje <0) 
+      {
+        // Primer: više poruka jedna za drugom...
+        async function showAllMessages() { 
+           //alert(c.komentarTeorijaPonovo + `\n` + c.txtTacnih + `${tacnoOdgovorenih}\n` + c.txtNetacnih + `${netacnoOdgovorenih}`);
+           await showMessage(c.komentarTeorijaPonovo + `\n` + c.txtTacnih + ` ${tacnoOdgovorenih}\n` + c.txtNetacnih + ` ${netacnoOdgovorenih}`,  "red", "cross");
+           await showMessage(c.komentarTeorijaPonovo, "blue", "info");
+           prikaziTeoriju(trenutnoTeorijsko); //na primer, idi na pitanje -1 znači da nije baš dobro odgovarao do kraja, pa ga šaljemo da opet čita pitanja i radi test
+        } 
+        showAllMessages();
+      }
+      else { prikaziPitanje(trenutnoPitanje);}
+    };
+  }
+
+  function promeniJezik(noviJezik) { //kada promeni jezik vrati se na početak teorije za taj deo lekcije
+    if (!lekcije[noviJezik]) return;
+    trenutniJezik = noviJezik;
+    trenutnoTeorijsko = 0;
+    trenutnoPitanje = null;
+    tacnoOdgovorenih = 0;
+    netacnoOdgovorenih = 0;
+    pozadinaUkljucena = true;
+    document.body.classList.add('nezna-pozadina');
+    boolTeorijskiDeo = true;
+    updateTexts();
+    prikaziTeoriju();
+    
+  }
+
+  // --- Zvuk ---
+  const audioTacno = new Audio("https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg");
+  const audioNetacno = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
+
+  function playSound(tacan) {
+    if (tacan) audioTacno.play();
+    else audioNetacno.play();
+  }
+
+  function toggleZvuk() {
+    efektiUkljuceni = !efektiUkljuceni;
+    const d = user_interface[trenutniJezik];
+    soundToggle.title = efektiUkljuceni ? d.zvuk_ukljucen : d.zvuk_iskljucen;
+    soundToggle.style.opacity = efektiUkljuceni ? '1' : '0.4';
+  }
+    
+  
+  // Funkcija koja pronalazi najbolji glas za izabrani jezik za čitanje teksta (OS i TTS) 
+  function getVoiceForLanguage(lang) {
+      const voices = window.speechSynthesis.getVoices();
+      // Prvo pokušaj tačno podudaranje
+      let voice = voices.find(v => v.lang.toLowerCase() === lang.toLowerCase());
+      if (!voice) {
+          // Ako nema, pokušaj pronaći glas sa istim jezikom (bez regije)
+          const shortLang = lang.split("-")[0];
+          voice = voices.find(v => v.lang.toLowerCase().startsWith(shortLang));
+      }
+      if (!voice) {
+          // Ako ni to ne postoji, uzmi prvi dostupni
+          voice = voices[0];
+      }
+      return voice;
+  }
+
+  // TTS funkcija za pretvaranje teksta u govor, računar izgovara (tekst ovde ne sme biti multilingual) 
+  // Sa Web Speech API-jem → mora jedan jezik po sesiji. Mešanje unutar iste rečenice retko uspeva.
+  // Za prirodan „code-switching“ u istoj sesiji → dobro rešenje je Whisper (lokalno instalirati ili preko API-ja), podržan je i sr.
+
+  function updateIndicator() {
+     indicator.style.backgroundColor = flagTalking ? "red" : "green";
+  }
+
+    function cirilicaUlatinicu(textIzCirLat) {
+      const map = {
+        'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
+        'Ђ': 'Đ', 'Е': 'E', 'Ж': 'Ž', 'З': 'Z', 'И': 'I',
+        'Ј': 'J', 'К': 'K', 'Л': 'L', 'Љ': 'Lj', 'М': 'M',
+        'Н': 'N', 'Њ': 'Nj', 'О': 'O', 'П': 'P', 'Р': 'R',
+        'С': 'S', 'Т': 'T', 'Ћ': 'Ć', 'У': 'U', 'Ф': 'F',
+        'Х': 'H', 'Ц': 'C', 'Ч': 'Č', 'Џ': 'Dž', 'Ш': 'Š',
+        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+        'ђ': 'đ', 'е': 'e', 'ж': 'ž', 'з': 'z', 'и': 'i',
+        'ј': 'j', 'к': 'k', 'л': 'l', 'љ': 'lj', 'м': 'm',
+        'н': 'n', 'њ': 'nj', 'о': 'o', 'п': 'p', 'р': 'r',
+        'с': 's', 'т': 't', 'ћ': 'ć', 'у': 'u', 'ф': 'f',
+        'х': 'h', 'ц': 'c', 'ч': 'č', 'џ': 'dž', 'ш': 'š',
+      };
+      return textIzCirLat.split('').map(char => map[char] || char).join('');
+    }
+
+  function speakCurrent() {
+      if (!('speechSynthesis' in window)) {
+        alert("Nažalost, vaš browser ne podržava čitanje teksta naglas (TTS).");
+        talkText.style.display = 'block';//nema citanja pa treba da se ne vidi Talk dugme
+        return;
+      }
+      flagTalking = true;
+      updateIndicator();
+      talkText.style.display = 'none';
+      tekstZaCitanje = tekstZaCitanje.replaceAll("<br>"," ");  //menja sva pojavljivanja <br> sa " ", da ne bi čitao br kao broj ili brejk
+      tekstZaCitanje = tekstZaCitanje.replaceAll("__"," ");  //menja sva pojavljivanja "__" sa " ", koristi se _____ za dopuniti rečenicu, ali automatski čita sve
+      const msg = new SpeechSynthesisUtterance(tekstZaCitanje);
+      //msg = msg.replaceAll("<br>","");  //menja sva pojavljivanja <br> sa "", tj. briše sve <br>
+   
+      // Podešavanje jezika i glas
+      let langCode = trenutniJezik;
+  
+      // fallback
+      if (trenutniJezik === "sr") langCode = "hr-HR"; // Srpski -> Hrvatski, za sada, dok ne dobijemo dobru podršku za jezik
+      if (trenutniJezik === "sl") langCode = "hr-HR"; // Slovenački -> Hrvatski, za sada, dok ne dobijemo dobru podršku za jezik
+      //if (trenutniJezik === "sr" && !getVoiceForLanguage("sr")) langCode = "hr-HR";
+      //if (trenutniJezik === "sl" && !getVoiceForLanguage("sl-SI")) langCode = "hr-HR";
+  
+      // Ostali jezici ostaju isti  
+      msg.lang = langCode;
+  
+      // Odaberi odgovarajući glas
+      const voice = getVoiceForLanguage(langCode);
+      if (voice) msg.voice = voice;
+          
+      msg.onstart = () => {
+        talkText.style.display = 'none';
+        pauseTalkBtn.style.display = 'block'; //dok traje TTS citanje ima potrebe da se vide btns pauza i stop za citanje
+        stopTalkBtn.style.display = 'block';
+        speedTalkControl.style.display = 'block';
+        status.textContent = "Čitam...";
+      };
+              
+      msg.onend = () => {
+        // kratka pauza da TTS završi i da se ne preklapa sa ASR
+        setTimeout(() => {
+          updateIndicator();
+          status.textContent = "Slušam... Recite...";
+          //output2.textContent = "Počeo sam da slušam...";
+          pauseTalkBtn.style.display = 'none'; //kada zavrsi TTS citanje nema potrebe da se vide btns pauza i stop za citanje
+          stopTalkBtn.style.display = 'none';
+          speedTalkControl.style.display = 'none';
+          talkText.style.display = 'block';//zavrsilo se TTS-citanje, pa prikayujemo Talk dugme
+          output2.textContent = "Završio sam sa čitanjem... Slušam, recite...";
+          flagTalking = false;
+        }, 400);
+      };
+
+      msg.rate = parseFloat(speedTalkControl.value); // defaul-selected 0.9 za speedTalkControl) VAŽNO! (ideja: ASR "uspori", "ubrzaj" sporije, brže - vidi chatGPT rešenje
+      window.speechSynthesis.speak(msg);
+  }
+
+  // Re-load glasova kada se promene (npr. nakon prvog učitavanja)
+  window.speechSynthesis.onvoiceschanged = function() {
+      console.log("Glasovi učitani:", window.speechSynthesis.getVoices());
+  };
+
+
+  function showMessage(tekstPoruke, color, iconKey) {   // funkcija za prikaz jedne poruke (šaljemo joj tekst, boju i ikonu)
+    return new Promise(resolve => {
+
+      // Kreiraj ili pronađi overlay sloj
+      let overlay = document.getElementById("overlay-blocker");
+      // Prikaži overlay da blokira sve klikove i tastaturu
+      overlay.style.display = "block"; // aktiviramo prikaz overlay sloja, tada je sve ispod neaktivno na klik mišem, i tastatura... ništa ne reaguje.
+
+      const divElementPoruke = document.createElement("div");
+      divElementPoruke.className = `message ${color}`;
+      divElementPoruke.innerHTML = `<span class='icon'>${icons[iconKey]}</span> ${tekstPoruke}`;
+      messageContainer.appendChild(divElementPoruke);
+
+      // Fade-in
+      setTimeout(() => divElementPoruke.classList.add("show"), 100);
+
+      if (aktivanASR) { // ako je ASR aktiviran onda ce procitati motivacionu poruku
+        tekstZaCitanje = tekstPoruke;
+        speakCurrent();
+      }
+
+      // Fade-out posle 9s (2 + 7) - skratio sam
+      setTimeout(() => divElementPoruke.classList.remove("show"), 5000);
+
+      // Ukloni element posle 11s (2 fade-in + 7 + 2 fade-out) - skratio sam
+      setTimeout(() => {
+        divElementPoruke.remove();
+        overlay.style.display = "none"; // ponovo dozvoli interakciju
+        resolve(); // obavesti da je završeno
+      }, 7000);
+    });
+  }
+
+
+  // --- IOP Funkcije ---
+  btnFontPlus.onclick = () => { //povećava veličinu fonta za 2px - za osobe koje slabije vide
+    let style = window.getComputedStyle(document.body);
+    let fontSize = parseFloat(style.fontSize);
+    document.body.style.fontSize = (fontSize + 2) + "px";
+  };
+  btnFontReset.onclick = () => {  //vraća veličinu fonta na 15px
+    document.body.style.fontSize = "15px";
+  };
+  btnBgToggle.onclick = () => {  //postavlja nežnu pozadinu - može biti pogodno za osobe sa autizmom itd.
+    pozadinaUkljucena = !pozadinaUkljucena;
+    if (pozadinaUkljucena) {
+      document.body.classList.add('nezna-pozadina');
+    } else {
+      document.body.classList.remove('nezna-pozadina');
+    }
+  };
+  
+
+
+  // --- DOGAĐAJI ---
+  theoryNextBtn.onclick = () => {
+    prikaziSledecuTeoriju();
+  };
+
+  QuizNextBtn.onclick = () => {
+    idiNaSledecePitanje();
+  };
+
+  soundToggle.onclick = () => {
+    toggleZvuk();
+  };
+
+  talkText.onclick = () => {
+    //talkText.style.display = 'none'; //dok TTS prica ne sme da se dozvoli da se opet klikne, a pojavice se btns za Pauzu, Stop itd.
+    speakCurrent();
+  };
+
+  stopTalkBtn.onclick = () => {
+    speechSynthesis.cancel();
+    isTalkPaused = false;
+    pauseTalkBtn.textContent = '⏸️';
+    pauseTalkBtn.style.display = 'none'; //dok nema TTS citanja, nema potrebe da se vide btns pauza i stop za citanje
+    stopTalkBtn.style.display = 'none';
+    speedTalkControl.style.display = 'none';
+    talkText.style.display = 'block'; //prestanak TTS-govora, pa se pojavljuje Talk dugme
+    flagTalking = false;
+  };
+
+  pauseTalkBtn.onclick = () => {
+    if (!isTalkPaused) {
+      speechSynthesis.pause();
+      isTalkPaused = true;
+      pauseTalkBtn.textContent = '▶️';
+      flagTalking = false;
+    } else {
+      speechSynthesis.resume();
+      isTalkPaused = false;
+      pauseTalkBtn.textContent = '⏸️';
+      flagTalking = true;
+    }
+  };
+
+  speedTalkControl.onchange = () => {
+    if (speechSynthesis.speaking) {
+      speechSynthesis.cancel();
+      speakCurrent();
+    }
+  };
+
+    micBtn.onclick = () => {
+      if (aktivanASR) {
+        recognition.stop();
+        micBtn.classList.remove("active-mic"); //vraca boju ikonu/dugmeta u belo jer je neaktivno ASR 
+        aktivanASR = false; 
+        output2.style.display = 'none';
+        status.style.display = 'none';
+        indicator.style.display = 'none';
+      } else if (!recognition) { // ako nije aktivan ASR, treba ga startovati
+          alert("Speech Recognition API nije podržan u ovom pregledaču.");
+          //return;  mozda ovo vratiti, testiraj na zastarelom pregledacu
+      } else {
+          // Podešavanje jezika i glas
+          recognition.lang = trenutniJezik;  
+          // sledi fallback, ako nema podrsku za sr ili sl 
+          //if (trenutniJezik.includes("sr")) recognition.lang = "hr-HR"; // Srpski -> Hrvatski, za sada, dok ne dobijemo dobru podršku za jezik ,,,,,,,,,,,,,,Poslednje, ali nisam proverio
+          if (trenutniJezik.includes("sr")) recognition.lang = "hr-HR"; // Srpski -> Hrvatski, za sada, dok ne dobijemo dobru podršku za jezik ,,,,,,,,,,,,,,Poslednje, ali nisam proverio
+          if (trenutniJezik === "sl") recognition.lang = "hr-HR"; // Slovenački -> Hrvatski, za sada, dok ne dobijemo dobru podršku za jezik, ,,,,,,,,,,proveri prvo sa alert
+     
+          micBtn.classList.add("active-mic"); //boji ikonu/dugme u zeleno jer je aktivno ASR
+          aktivanASR = true;
+          output2.style.display = 'block';
+          status.style.display = 'block';
+          indicator.style.display = 'block';
+          recognition.start();
+      }
+    };
+
+    function uspori() {
+        // Ako bi nova umanjena vrednost pala ispod minimuma, tada ne menjati
+      if (((parseFloat(speedTalkControl.value) - 0.3).toFixed(1)) < 0.3) {
+        alert("Ne može sporije!");
+        return;
+      } else {
+        // Postavi tačnu string vrednost
+        speedTalkControl.value = (parseFloat(speedTalkControl.value) - 0.3).toFixed(1);;
+        speedTalkControl.onchange();
+      }
+    }
+
+    function ubrzaj() {
+         //.toFixed(1) zaokruzi na 1 dec. mesto i napravi npr. "1.2" kao string
+        // Ako bi nova uvecana vrednost bila iznad maximuma, tada ne menjati
+      if (((parseFloat(speedTalkControl.value) + 0.3).toFixed(1)) > "2.1") {
+        alert("Ne može brže!");
+        return;
+      } else {
+        // Postavi tačnu string vrednost
+        speedTalkControl.value = (parseFloat(speedTalkControl.value) + 0.3).toFixed(1);
+        speedTalkControl.onchange();
+      }
+    }
+      
+    recognition.onresult = (event) => {
+     let transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
+     if (transcript.includes("stop") || transcript.includes("stani")) {
+       stopTalkBtn.onclick();
+       return; 
+     }
+     if (transcript.includes("pauz") || transcript.includes("nastav")) {
+       pauseTalkBtn.onclick();
+       return; 
+     }
+     if (transcript.includes("spori") || transcript.includes("lagan")) {
+       uspori();
+       return; 
+     }
+     if (transcript.includes("brz") || transcript.includes("brž")) {
+       ubrzaj();
+       return; 
+     }
+
+     if (flagTalking) {
+        recognition.interimResults = true;
+        status.textContent = "Čitanje je u toku...";
+        output2.textContent = "čujem... " + transcript;
+     } else {
+
+      recognition.interimResults = true;
+      status.textContent = "flagTalking je false, interimResults je true";
+ 
+      output2.textContent = "Čuo sam: " + transcript;
+      //status.textContent = "Ušao sam u recognition.onresult = (event) => ....";
+
+      if (transcript.includes("dalje") || transcript.includes("kviz") || transcript.includes("sledeć")) {
+           if (boolTeorijskiDeo) {
+             prikaziSledecuTeoriju();
+           } else {
+             idiNaSledecePitanje();
+           }
+      } else if (transcript.includes("ponov") || transcript.includes("čita") || transcript.includes("čuo")) {
+        speakCurrent();
+      } else if (transcript.includes("1") || transcript.includes("prv") || transcript.includes("jedan") || transcript.includes("2") ||  transcript.includes("drug") || transcript.includes("dva") || transcript.includes("3") || transcript.includes("tre") || transcript.includes("tri") || transcript.includes("4") || transcript.includes("etvrt") || transcript.includes("etiri")) {    //bilo: if (transcript.includes("odgovor")) {    izbacio sam da ne mora da kaze rec odgovor, da olaksam
+        let answer = "0";
+        if (!boolTeorijskiDeo) {
+          if (transcript.includes("prv") || transcript.includes("jedan") || transcript.includes("1")) answer = "1";
+          if (transcript.includes("drug") || transcript.includes("dva") || transcript.includes("2")) answer = "2";
+          if (transcript.includes("tre") || transcript.includes("tri") || transcript.includes("3")) answer = "3";
+          if (transcript.includes("etvr") || transcript.includes("etir") || transcript.includes("etri") || transcript.includes("4")) answer = "4";
+        }
+        //selectedP.textContent = answer ? "✅ Izabrali ste opciju " + answer : "❌ Nije prepoznat odgovor.";
+        let intIzabraniOdgovor = parseInt(answer, 10); //ceo broj, osnova 10
+        if (intIzabraniOdgovor > 0) proveriOdgovor(--intIzabraniOdgovor); //prvo umanjujem za jedan, jer korisnik posmatra odgovore: prvo, drugo... ili 1,2,3... ali ne od nule
+      } else if (transcript.includes("isklju") || transcript.includes("ćuti") || transcript.includes("nemoj") || transcript.includes("neću")) {
+         micBtn.onclick(); 
+      } else {
+        status.textContent = "Nisam razumeo. Pokušaj ponovo.";
+      }
+     } //glavni if else
+     status.textContent = status.textContent + " " + (NoProlaza++);
+    }; // kraj za recognition
+
+
+  recognition.onend = function () {
+    if (aktivanASR) {
+      status.textContent = "ASR se pauzirao, ponovo pokrećem...";
+      setTimeout(() => {
+        try {
+          recognition.start();
+        } catch (e) {
+          status.textContent = "Greška pri ponovnom startu: " + e;
+        }
+      }, 500); // 0.5sec
+    } else {
+      status.textContent = "ASR isključen od strane korisnika.";
+    }
+  };
+
+
+    // Jezičke zastavice aktivne / neaktivne
+  document.querySelectorAll("#languages img").forEach(img => {
+    img.onclick = () => {
+      promeniJezik(img.dataset.lang);
+  
+      // Ukloni "active" sa svih zastava
+      document.querySelectorAll("#languages img").forEach(i => i.classList.remove("active"));
+  
+      // Dodaj "active" na selektovanu zastavu
+      document.getElementById("flag-" + img.dataset.lang).classList.add("active");
+    };
+  });
+
+  function initLesson() {
+    //promeniJezik(defaultLang);
+    document.querySelector(`#flag-${defaultLang}`).classList.add("active");
+    toggleZvuk(); // na početku isključi zvučne efekte
+    pauseTalkBtn.style.display = 'none'; //dok ne kliknemo da TTS citanje nema potrebe da se vide btns pauza i stop za citanje
+    stopTalkBtn.style.display = 'none';
+    SpeedTalkControl.style.display = 'none';
+  }
+  
+  //UČITAVANJE LEKCIJE u lekcije - ako nema gresaka pri ucitavanju, rezultat je: globalna promenljiva lekcije dobija vrednost, a to je pokazivac na sadrzaj fajla `lessons/${currentLessonFile}`
+  async function loadLesson() {
+    try {
+      response = await fetch(`lessons/${currentLessonFile}`);
+      if (!response.ok) throw new Error("Lesson not found");
+  
+      lekcije = await response.json();
+      //alert("PROSLO JE DOBRO SA POVEZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lekcije["en"].naslov+". licenca: "+lekcije.meta.license);
+  
+      //POSTO JE UCITANA LEKCIJA IZ FAJLA, TEK SADA POKRECEMO I PODESAVAMO OSTALO STA IDE NA PRI STARTOVANJU (to je sve bilo u window.onload = () => {)
+      promeniJezik(defaultLang);
+      //initLesson(); // poseban blok za podešavanje
+      //dovde je bilo u window.onload = ()
+    } catch (e) {
+      alert("Greška pri učitavanju lekcije... "+`lessons/${currentLessonFile}`);
+      console.error(e);
+    }
+  }
+  
+  // --- INIT ---
+  window.onload = () => {
+    loadLesson(); // Vazno!!! poziva ucitavanje lekcije iz fajla, dodeljuje vrednost pokazivacu na tekst lekcije, dodao 2.maja26.
+    initLesson(); // poseban blok za podešavanje
+  };
+
+})();
+</script>
+</body>
+</html>
