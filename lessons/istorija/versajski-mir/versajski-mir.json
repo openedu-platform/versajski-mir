@@ -6,7 +6,7 @@
     "_comment_note_for_teachers": "Slike i video su opcionalni. - Pictures and video are optional.",
     
     "meta": {
-      "Lesson-Author": "Vladimir Simić",
+      "Author": "Vladimir Simić",
       "School": "Ugostiteljsko-turisticka skola, Beograd, Srbija",
       "id": "versajski-mir",
       "grade": 9,
@@ -18,257 +18,169 @@
     
     "lesson_default_language": "sr",
 
- "sr": 
-{   
-  "naslov": "Versajski mir",
-  "naslovProzora": "Programirano učenje",
-
-  "deloviLekcije":
-  [
-
+    "sr": 
     { 
-      "nazivDelaLekcije": "Versajska konferencija",
-
-      "teorija":
-      [
-        {
-          "tekst": "Posle završetka Prvog svetskog rata održana je mirovna konferencija u dvorcu Versaj pored Pariza. Konferencija je počela januara 1919. godine i trajala je godinu dana.",
-          "slika": "images/versaj.jpg",
-          "video": "",
-        },
-
-        {
-          "tekst": "Na konferenciji glavnu reč vodile su velike sile pobednice: Francuska, Velika Britanija, SAD, Italija i Japan. Predsednik SAD Vudro Vilson zalagao se za trajan i pravedan mir.",
-          "slika": "images/big_four.jpg",
-          "video": "",
-        }
-      ],
-
-      "pitanja":
-      [
-        {
-          "redni": 0,
-          "tekst": "Gde je 1919. godine održana mirovna konferencija posle Prvog svetskog rata?",
-          "slika": "",
-          "odgovori": ["U Londonu", "U Versaju kod Pariza", "U Berlinu", "U Moskvi"],
-          "tacni": [false, true, false, false],
-          "grananje": [1, 2, 1, 1]
-        },
-
-        {
-          "redni": 1,
-          "tekst": "Kada je počela Versajska konferencija?",
-          "slika": "",
-          "odgovori": ["1914. godine", "1918. godine", "1919. godine", "1925. godine"],
-          "tacni": [false, false, true, false],
-          "grananje": [-1, -1, 2, -1]
-        },
-
-        {
-          "redni": 2,
-          "tekst": "Koje države su vodile glavnu reč na konferenciji?",
-          "slika": "",
-          "odgovori": ["Francuska, Britanija, SAD, Italija i Japan", "Samo Francuska i Britanija", "Rusija i Nemačka", "Samo SAD"],
-          "tacni": [true, false, false, false],
-          "grananje": [3, -1, -1, -1]
-        },
-
-        {
-          "redni": 3,
-          "tekst": "Koji predsednik SAD se zalagao za trajan i pravedan mir?",
-          "slika": "images/Woodrow_Wilson.jpg",
-          "odgovori": ["Abraham Linkoln", "Vudro Vilson", "Ruzvelt", "Truman"],
-          "tacni": [false, true, false, false],
-          "grananje": [4, 5, 4, 4]
-        },
-
-        {
-          "redni": 4,
-          "tekst": "Da li je Rusiji bilo dozvoljeno učešće na konferenciji?",
-          "slika": "",
-          "odgovori": ["Da", "Ne"],
-          "tacni": [false, true],
-          "grananje": [-1, 5]
-        }
-      ]
-    },
-
-
-
-    {
-      "nazivDelaLekcije": "Kazne za Nemačku",
-
-      "teorija":
-      [
-        {
-          "tekst": "Na Versajskoj konferenciji Nemačka je proglašena glavnim krivcem za rat. Zbog toga je teško kažnjena. Nemačka je smatrala da je Mirovni sporazum nepravedan. Prihvatila ga je, ali uz proteste. Nezadovoljne su bile i druge države, poput Italije, Mađarske i Bugarske. Sve ove države želele su promenu granica i nove sporazume.",
-          "slika": "images/Nemacka_protesti_1919.jpg",
-          "video": "",
-        },
-
-        {
-          "tekst": "Nemačka je izgubila kolonije, morala je da plaća ratnu odštetu i bilo joj je zabranjeno da ima veliko naoružanje. Dozvoljeno joj je samo 100 hiljada lako naoružanih vojnika.",
-          "slika": "images/mapa_Evrope_1919.jpg",
-          "video": "",
-        },
-
-        {
-          "tekst": "Oblasti Rur i Sar okupirale su Francuska i Belgija kako bi naplaćivale ratnu odštetu iz tamošnje industrije i rudnika.",
-          "slika": "images/ruhr_saar1920.jpg",
-          "video": "",
-        }
-      ],
-
-      "pitanja":
-      [
-        {
-          "redni": 0,
-          "tekst": "Kako je Nemačka označena na Versajskoj konferenciji?",
-          "slika": "",
-          "odgovori": ["Kao pobednik rata", "Kao glavni krivac za rat", "Kao neutralna država", "Kao saveznik Francuske"],
-          "tacni": [false, true, false, false],
-          "grananje": [1, 2, 1, 1]
-        },
-
-        {
-          "redni": 1,
-          "tekst": "Šta je Nemačka izgubila posle rata?",
-          "slika": "",
-          "odgovori": ["Sve kolonije", "Samo Berlin", "Samo vojsku", "Ništa nije izgubila"],
-          "tacni": [true, false, false, false],
-          "grananje": [2, -1, -1, -1]
-        },
-
-        {
-          "redni": 2,
-          "tekst": "Koliko vojnika je bilo dozvoljeno Nemačkoj?",
-          "slika": "",
-          "odgovori": ["Milion vojnika", "500 hiljada vojnika", "100 hiljada vojnika", "Nije smela da ima vojsku"],
-          "tacni": [false, false, true, false],
-          "grananje": [3, 3, 4, 3]
-        },
-
-        {
-          "redni": 3,
-          "tekst": "Da li je Nemačka morala da plaća ratnu odštetu?",
-          "slika": "",
-          "odgovori": ["Da", "Ne"],
-          "tacni": [true, false],
-          "grananje": [4, -1]
-        },
-
-        {
-          "redni": 4,
-          "tekst": "Koje oblasti su okupirale Francuska i Belgija?",
-          "slika": "",
-          "odgovori": ["Bavarsku i Berlin", "Rur i Sar", "Prusku i Hamburg", "Saksoniju i Minhen"],
-          "tacni": [false, true, false, false],
-          "grananje": [5, 6, 5, 5]
-        },
-
-        {
-          "redni": 5,
-          "tekst": "Zašto su Francuska i Belgija okupirale Rur i Sar?",
-          "slika": "",
-          "odgovori": ["Da prošire teritoriju", "Da naplate ratnu odštetu", "Da naprave novu državu", "Da pomognu Nemačkoj"],
-          "tacni": [false, true, false, false],
-          "grananje": [-1, 6, -1, -1]
-        }
-      ]
-    },
-
-
-
-    {
-      "nazivDelaLekcije": "Posledice Versajskog mira",
-
-      "teorija":
-      [
-        {
-          "tekst": "Od 1919. do 1933. Nemačka se nazivala Vajmarska republika, jer je proglašena u gradiću Vajmar (Weimar).",
-          "slika": "images/German_losses_after_WWI.png",
-          "video": "",
-        },
-
-        {
-          "tekst": "Posle rata nestala su četiri velika carstva: Rusko, Austro-Ugarsko, Osmansko i Nemačko carstvo. Nastaju nove države - Finska, Latvija, Litva, Estonija, Poljska, Čehoslovačka, Kraljevina SHS i SSSR (1922).",
-          "slika": "",
-          "video": "",
-        }
-      ],
-
-      "pitanja":
-      [
-        {
-          "redni": 0,
-          "tekst": "Kako su Nemci doživeli Versajski mir?",
-          "slika": "",
-          "odgovori": ["Kao pravedan", "Kao nepravedan", "Kao nevažan", "Kao pobedu"],
-          "tacni": [false, true, false, false],
-          "grananje": [1, 2, 1, 1]
-        },
-
-        {
-          "redni": 1,
-          "tekst": "Koje države su bile nezadovoljne Versajskim mirom?",
-          "slika": "",
-          "odgovori": ["Italija, Mađarska i Bugarska", "Samo Francuska", "Samo SAD", "Nijedna država"],
-          "tacni": [true, false, false, false],
-          "grananje": [2, -1, -1, -1]
-        },
-
-        {
-          "redni": 2,
-          "tekst": "Koliko velikih carstava je nestalo posle Prvog svetskog rata?",
-          "slika": "",
-          "odgovori": ["Dva", "Tri", "Četiri", "Pet"],
-          "tacni": [false, false, true, false],
-          "grananje": [3, 3, 4, 3]
-        },
-
-        {
-          "redni": 3,
-          "tekst": "Koje carstvo NIJE nestalo posle Prvog svetskog rata?",
-          "slika": "",
-          "odgovori": ["Rusko", "Francusko", "Osmansko", "Nemačko"],
-          "tacni": [false, true, false, false],
-          "grananje": [-1, 4, -1, -1]
-        },
-
-        {
-          "redni": 4,
-          "tekst": "Koja nova država je nastala posle Prvog svetskog rata?",
-          "slika": "",
-          "odgovori": ["Kraljevina SHS", "Rimsko carstvo", "Vizantija", "Sparta"],
-          "tacni": [true, false, false, false],
-          "grananje": [5, -1, -1, -1]
-        },
-
-        {
-          "redni": 5,
-          "tekst": "Kako se nazivala Nemačka od 1919. do 1933. godine?",
-          "slika": "",
-          "odgovori": ["Treći rajh", "Vajmarska Republika", "Pruska", "Sveto rimsko carstvo"],
-          "tacni": [false, true, false, false],
-          "grananje": [6, 7, 6, 6]
-        },
-
-        {
-          "redni": 6,
-          "tekst": "Zašto je Nemačka nazvana Vajmarska Republika?",
-          "slika": "",
-          "odgovori": ["Po gradu Vajmaru gde je proglašena republika", "Po nemačkom caru", "Po francuskom predsedniku", "Po vojnom savezu"],
-          "tacni": [true, false, false, false],
-          "grananje": [7, -1, -1, -1]
-        }
-      ]
-    }
-
-  ],
-
-},  //za klasu SR: - lekcije, pitanja i korisnički interfejs na sr. ---
-   
+      "naslov": "Uvod u računarstvo i informatiku",
+      "naslovProzora": "Programirano učenje",
       
+      "deloviLekcije": 
+      [   
+       { 
+         "nazivDelaLekcije": "Podatak i informacija", 
+         "teorija":     
+         [  
+           {
+             "tekst": "Podatak je zapis činjenice, najčešće sastavljen od brojeva, slova ili simbola.<br><br>Na primer, podatak je broj 4 . Podatak se može tumačiti na različite načine. Broj 4 može predstavljati ocenu učenika ili udaljenost od 4 kilometra i drugo.",
+             "slika": "images/podatak50.png",
+             "video": ""
+           },
+           {
+             "tekst": "Informacija je skup podataka koji su protumačeni na neki način.<br><br>Na primer: \"Petar je dobio ocenu 5 iz geografije.\" U ovoj rečenici je broju 5 dat smisao, broj 5 je protumačen, pa je to informacija.<br>50 - podatak. Masa tega je 50kg - informacija.",
+             "slika": "images/informacija.png",
+             "video": ""
+           }
+         ],
+
+         "pitanja": 
+         [
+           {
+             "redni": 0,
+             "tekst": "Šta je podatak?",
+             "slika": "",
+             "odgovori": ["To je kada znamo da je neko rastojanje 4 kilometra.", "To je, na primer, kada znamo da je Petar dobio 5 iz geografije.", "To je skup podataka koji su protumačeni na neki način.", "To je zapis činjenice, najčešće sastavljen od brojeva, slova ili simbola."],
+             "tacni": [false, false, false, true],
+             "grananje": [1, 1, 2, 3]
+           },
+           {
+             "redni": 1,
+             "tekst": "Izaberite primer podatka među ponuđenim opcijama.",
+             "slika": "",
+             "odgovori": ["Broj 3 je veći od broja 2.", "Zbir brojeva 3 i 2 je jednak 5.", "Inform@t!k@12345", "Francuska je u Evropi"],
+             "tacni": [false, false, true, false],
+             "grananje": [2, 2, 3, 2]
+           },
+           {
+             "redni": 2,
+             "tekst": "Izaberite primer podatka među ponuđenim opcijama.",
+             "slika": "",
+             "odgovori": ["Petar dobio 5 iz geografije.", "4", "Obrazovanje je korisno.", "Sada odgovaram na pitanja."],
+             "tacni": [false, true, false, false],
+             "grananje": [-1, 3, -1, -1]
+           },
+           {
+             "redni": 3,
+             "tekst": "Izaberite primer informacije među ponuđenim opcijama.",
+             "slika": "images/informacija_mala.png",
+             "odgovori": ["4", "podatak", "Broj Pi, tj. &pi; u matematici ima približnu vrednost 3.14", "Napajanje"],
+             "tacni": [false, false, true, false],
+             "grananje": [4, 4, 6, 4]
+           },
+           {
+             "redni": 4,
+             "tekst": "Šta je informacija?",
+             "slika": "images/informacija_mala.png",
+             "odgovori": ["To je skup podataka koji su protumačeni na neki način.", "5", "50", "To je zapis činjenice, najčešće sastavljen od brojeva, slova ili simbola."],
+             "tacni": [true, false, false, false],
+             "grananje": [6, 5, 5, 5] 
+           },
+           {
+             "redni": 5,
+             "tekst": "Izaberite primer informacije među ponuđenim opcijama.",
+             "slika": "",
+             "odgovori": ["5", "0.142857", "Milan je dobio ocenu 5 iz engleskog jezika.", "2E+77232917-1"],
+             "tacni": [false, false, true, false],
+             "grananje": [-1, -1, 6, -1]
+           }
+         ]
+       },
+  
+    
+       { 
+         "nazivDelaLekcije": "Računarstvo i informatika",
+         "teorija": 
+         [
+           {
+             "tekst": "Informatika se bavi prikupljanjem, čuvanjem, obradom i prenosom informacija, kao i primenom računara u raznim oblastima.",
+             "slika": "images/informatika.png",
+             "video": ""
+           },
+           {
+             "tekst": "Računarstvo se bavi proučavanjem teorije i prakse procesa računanja. (udžbenik za 1. razred (Filip Marić))<br><br>Računarstvo se bavi proučavanjem računarskih sistema i teorije informacije i računanja, i njihovim primenama.(Britannica)",
+             "slika": "images/racunarstvo.png",
+             "video": ""
+           }
+         ],
+
+         "pitanja": [
+           {
+             "redni": 0,
+             "tekst": "Dopuniti rečenicu:________________________ se bavi prikupljanjem, čuvanjem, obradom i prenosom informacija, kao i primenom računara u raznim oblastima.",
+             "slika": "",
+             "odgovori": ["Računarstvo", "Informatika", "Računar", "Informacija"],
+             "tacni": [false, true, false, false],
+             "grananje": [-1, 1, -1, -1]
+           },
+           {
+             "redni": 1,
+             "tekst": "Dopuniti rečenicu: ________________________ se bavi proučavanjem teorije i prakse procesa računanja.",
+             "slika": "",
+             "odgovori": ["Računarstvo", "Prenos informacija", "Informatika", "Računarski sistem"],
+             "tacni": [true, false, false, false],
+             "grananje": [3, 2, 2, 2]
+           },
+           {
+             "redni": 2,
+             "tekst": "Dopuniti rečenicu: ________________________ se bavi proučavanjem računarskih sistema i teorije informacije i računanja, i njihovim primenama.",
+             "slika": "",
+             "odgovori": ["Informatika", "Prenos informacija", "Računarstvo", "Računarski sistem"],
+             "tacni": [false, false, true, false],
+             "grananje": [-1, -1, 3, -1]
+           }
+         ]
+       },
+
+
+       { 
+         "nazivDelaLekcije": "Računar (računarski sistem, kompjuter)",
+         "teorija": [
+           {
+             "tekst": "Računar (računarski sistem, kompjuter) je mašina koja se može programirati za obavljanje različitih vrsta zadataka. On obrađuje i čuva informacije.<br><br>Ovaj pojam uključuje i desktop i prenosne (notebook, laptop) računare, pametne telefone (smartphones), tablete, ugrađene (embedded) računare u automobilima, avionima, frižiderima itd.",
+             "slika": "", 
+             "video": "videos/Embedded-Compurs.mp4"
+           }
+         ],
+
+         "pitanja": [
+           {
+             "redni": 0,
+             "tekst": "Šta je računar (računarski sistem, kompjuter)?",
+             "slika": "images/computers_small.png",
+             "odgovori": ["To je skup komponenti", "To je isto šta i informatika", "Računar se bavi prikupljanjem podataka.", "To je mašina koji se može programirati za obavljanje različitih vrsta zadataka."],
+             "tacni": [false, false, false, true],
+             "grananje": [1, 1, 1, 2]
+           },
+           {
+             "redni": 1,
+             "tekst": "Dopuniti rečenicu: ________________________ je mašina koja se može programirati za obavljanje različitih vrsta zadataka.",
+             "slika": "images/computers_small.png",
+             "odgovori": ["Informatika", "Računar", "Računarstvo", "Informacija"],
+             "tacni": [false, true, false, false],
+             "grananje": [-1, 2, -1, -1]
+           },
+           {
+             "redni": 2,
+             "tekst": "Šta podrazumeva pojam računara?",
+             "slika": "",
+             "odgovori": ["Ovaj pojam uključuje i desktop i prenosne (notebook, laptop) računare, pametne telefone (smartphones), tablete, ugrađene (embedded) računare itd.", "Ovaj pojam uključuje samo desktop kompjutere.", "Ovaj pojam uključuje samo laptop računare.", "Uključuje samo laptop i tablet"],
+             "tacni": [true, false, false, false],
+             "grananje": [3, -1, -1, -1]
+           }
+         ]
+       } 
+      ]
+    },
+    
+     
     "en": 
     {
       "naslov": "Introduction to Computer Science and Informatics",
