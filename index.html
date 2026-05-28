@@ -479,7 +479,7 @@ indicator.style.display = 'none';
   function prikaziTeoriju() {
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
-    document.getElementById("footer-auth").innerHTML = " 28.maj26. 21:31, " + "autor projekta: Ljubiša Cvetić, profesor računarstva i informatike, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja (<em>" + lekcije.meta.license + "</em>): " + lekcije.meta.Author;
+    document.getElementById("footer-auth").innerHTML = " 28.maj26. 21:34, " + "autor projekta: Ljubiša Cvetić, profesor računarstva i informatike, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja (<em>" + lekcije.meta.license + "</em>): " + lekcije.meta.Author + ", " + lekcije.meta.School;
       //"<p id="footer-section">autor projekta<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p> 🙂";
     //naslovEl.innerHTML = lekcije.meta.license; // BRISII
     //alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lekcije["en"].naslov+". licenca: "+lekcije.meta.license); // BRISII... copy +lekcije.meta.license
