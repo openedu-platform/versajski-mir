@@ -8,15 +8,15 @@
     "meta": {
       "Author": "Vladimir Simić, profesor istorije",
       "School": "Ugostiteljsko-turisticka skola, Beograd, Srbija",
-      "id": "introductionComputerScience",
+      "id": "versajski-mir",
       "grade": 9,
-      "subject": "Racunarstvo i informatika",
+      "subject": "Istorija",
       "license": "copyright, ©, CC BY-NC",
       "version": "1.0",
-      "lesson_modified": "28. maj 2026 21:32"
+      "lesson_modified": "28. maj 2026 21:38"
     },
     
-    "lesson_default_language": "en",
+    "lesson_default_language": "sr",
 
     "sr": 
     { 
