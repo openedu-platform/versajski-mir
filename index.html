@@ -387,7 +387,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 }
 
   let trenutniJezik = 'sr'; //set default language
-  let currentLessonFile = "racunarstvo/introductionComputerScience.json";  // VAZNO!!! Putanja do fajla sa sadrzajem lekcije, DODAO 2.MAJA26
+  let currentLessonFile = "istorija/versajski-mir/versajski-mir.json;  // VAZNO!!! Putanja do fajla sa sadrzajem lekcije, DODAO 2.MAJA26, u Versajski mir sam promenio 28. maja 26
   let lekcije = null;                                                   // VAZNO!!! POCETNA VREDNOST POKAZIVACA NA SADRZAJ FAJLA SA LEKCIJOM, dodao 2.maja26.
   let response = null;
   let trenutniDeoLekcije = 0; //za deloviLekcije[trenutniDeoLekcije]
@@ -479,7 +479,7 @@ indicator.style.display = 'none';
   function prikaziTeoriju() {
     let lekcija = lekcije[trenutniJezik]; // --- trenutniJezik je na početku "sr" ---
     naslovEl.innerHTML = lekcija.naslov;
-    document.getElementById("footer-auth").innerHTML = lekcije.meta.license + " 4.maj26. 00:33";
+    document.getElementById("footer-auth").innerHTML = lekcije.meta.license + " 28.maj26. 20:00";
       //"<p id="footer-section">autor projekta<em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, Ugostiteljsko-turistička škola, Jug Bogdanova 28, Beograd<br>lekcije i pitanja <em>(copyright, ©, CC BY-NC)</em>: Ljubiša Cvetić, profesor računarstva i informatike </p> 🙂";
     //naslovEl.innerHTML = lekcije.meta.license; // BRISII
     //alert("OVO MI sada PROLAZI.... POZIVANJEM SA FAJLOM "+`lessons/${currentLessonFile}`+". naslov: "+lekcije["en"].naslov+". licenca: "+lekcije.meta.license); // BRISII... copy +lekcije.meta.license
