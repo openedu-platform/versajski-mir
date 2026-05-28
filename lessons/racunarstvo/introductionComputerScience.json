@@ -13,7 +13,7 @@
       "subject": "Istorija",
       "license": "copyright, ©, CC BY-NC",
       "version": "1.0",
-      "lesson_modified": "28. maj 2026 21:48"
+      "lesson_modified": "28. maj 2026 21:59"
     },
     
     "lesson_default_language": "sr",
@@ -34,13 +34,13 @@
         {
           "tekst": "Posle završetka Prvog svetskog rata održana je mirovna konferencija u dvorcu Versaj pored Pariza. Konferencija je počela januara 1919. godine i trajala je godinu dana.",
           "slika": "images/versaj.jpg",
-          "video": "",
+          "video": ""
         },
 
         {
           "tekst": "Na konferenciji glavnu reč vodile su velike sile pobednice: Francuska, Velika Britanija, SAD, Italija i Japan. Predsednik SAD Vudro Vilson zalagao se za trajan i pravedan mir.",
           "slika": "images/big_four.jpg",
-          "video": "",
+          "video": ""
         }
       ],
 
@@ -103,19 +103,19 @@
         {
           "tekst": "Na Versajskoj konferenciji Nemačka je proglašena glavnim krivcem za rat. Zbog toga je teško kažnjena. Nemačka je smatrala da je Mirovni sporazum nepravedan. Prihvatila ga je, ali uz proteste. Nezadovoljne su bile i druge države, poput Italije, Mađarske i Bugarske. Sve ove države želele su promenu granica i nove sporazume.",
           "slika": "images/Nemacka_protesti_1919.jpg",
-          "video": "",
+          "video": ""
         },
 
         {
           "tekst": "Nemačka je izgubila kolonije, morala je da plaća ratnu odštetu i bilo joj je zabranjeno da ima veliko naoružanje. Dozvoljeno joj je samo 100 hiljada lako naoružanih vojnika.",
           "slika": "images/mapa_Evrope_1919.jpg",
-          "video": "",
+          "video": ""
         },
 
         {
           "tekst": "Oblasti Rur i Sar okupirale su Francuska i Belgija kako bi naplaćivale ratnu odštetu iz tamošnje industrije i rudnika.",
           "slika": "images/ruhr_saar1920.jpg",
-          "video": "",
+          "video": ""
         }
       ],
 
@@ -187,13 +187,13 @@
         {
           "tekst": "Od 1919. do 1933. Nemačka se nazivala Vajmarska republika, jer je proglašena u gradiću Vajmar (Weimar).",
           "slika": "images/German_losses_after_WWI.png",
-          "video": "",
+          "video": ""
         },
 
         {
           "tekst": "Posle rata nestala su četiri velika carstva: Rusko, Austro-Ugarsko, Osmansko i Nemačko carstvo. Nastaju nove države - Finska, Latvija, Litva, Estonija, Poljska, Čehoslovačka, Kraljevina SHS i SSSR (1922).",
           "slika": "",
-          "video": "",
+          "video": ""
         }
       ],
 
@@ -264,7 +264,7 @@
       ]
     }
   ],
-},  //za klasu SR: - lekcije, pitanja i korisnički interfejs na sr. ---
+},  //za klasu SR: - lekcije i pitanja na sr. ---
     
       
     "en": 
