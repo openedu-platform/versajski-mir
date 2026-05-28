@@ -161,7 +161,7 @@
           "redni": 4,
           "tekst": "Koje oblasti su okupirale Francuska i Belgija?",
           "slika": "",
-          "odgovori": ["Bavarsku i Berlin", "Rur i Sar", "Prusku i Hamburg", "Saksoniju i Minhen"],
+          "odgovori": ["Bavarsku i Berlin", "Rur i Sar", "Prusku i Hamburg", "Saksoniju i Minh],
           "tacni": [false, true, false, false],
           "grananje": [5, 6, 5, 5]
         },
@@ -264,7 +264,7 @@
       ]
     }
   ]
-},  //za klasu SR: - lekcije i pitanja na sr. ---
+},
     
       
     "en": 
