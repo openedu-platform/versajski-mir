@@ -177,8 +177,6 @@
       ]
     },
 
-
-
     {
       "nazivDelaLekcije": "Posledice Versajskog mira",
 
@@ -265,175 +263,253 @@
     }
   ]
 },
-    
-      
-    "en": 
-    {
-      "naslov": "Introduction to Computer Science and Informatics",
-      "naslovProzora": "Programmed Learning",
-      
-      "deloviLekcije":
+
+"en": 
+{   
+  "naslov": "Treaty of Versailles",
+  "naslovProzora": "Programmed Learning",
+
+  "deloviLekcije":
+  [
+
+    { 
+      "nazivDelaLekcije": "Versailles Conference",
+
+      "teorija":
       [
-       {
-         "nazivDelaLekcije": "Data and Information", 
-         "teorija":     
-         [
-           {
-             "tekst": "A data item is a record of a fact, usually consisting of numbers, letters, or symbols.<br><br>For example, the number 4 is a data item. A data item can be interpreted in different ways. The number 4 may represent a student’s grade, a distance of 4 kilometers, etc.",
-             "slika": "images/podatak50.png",
-             "video": ""
-           },
-           {
-             "tekst": "Information is a set of data that has been interpreted in some way.<br><br>For example: \"Peter got a grade 5 in geography.\" In this sentence, the number 5 is given meaning — it has been interpreted — and that makes it information.<br>50 - data. The mass of the weight is 50kg - information.",
-             "slika": "images/data-information.png",
-             "video": ""
-           }
-         ],  
-         
-         "pitanja": 
-         [
-           {
-             "redni": 0,
-             "tekst": "What is data?",
-             "slika": "images/podatak50.png",
-             "odgovori": [
-               "It is when we know that some distance is 4 kilometers.", 
-               "It is, for example, when we know that Peter got a grade 5 in geography.", 
-               "It is a set of data that has been interpreted in some way.", 
-               "It is a record of a fact, usually consisting of numbers, letters, or symbols."
-             ],
-             "tacni": [false, false, false, true],
-             "grananje": [1, 1, 2, 3]
-           },
-           {
-             "redni": 1,
-             "tekst": "Choose the example of data among the options below.",
-             "slika": "",
-             "odgovori": ["The number 3 is greater than 2.", "The sum of 3 and 2 equals 5.", "Inform@t!k@12345", "France is in Europe"],
-             "tacni": [false, false, true, false],
-             "grananje": [2, 2, 3, 2]
-           },
-           {
-             "redni": 2,
-             "tekst": "Choose the example of data among the options below.",
-             "slika": "",
-             "odgovori": ["Peter got grade 5 in geography.", "4", "Education is useful.", "I am now answering questions."],
-             "tacni": [false, true, false, false],
-             "grananje": [-1, 3, -1, -1]
-           },
-           {
-             "redni": 3,
-             "tekst": "Choose the example of information among the options below.",
-             "slika": "images/data-information-small.png",
-             "odgovori": ["4", "data", "The number Pi, i.e. &pi; in mathematics, has an approximate value of 3.14", "Power supply"],
-             "tacni": [false, false, true, false],
-             "grananje": [4, 4, 6, 4]
-           },
-           {
-             "redni": 4,
-             "tekst": "What is information?",
-             "slika": "images/data-information-small.png",
-             "odgovori": ["It is a set of data that has been interpreted in some way.", "5", "50", "It is a record of a fact, usually consisting of numbers, letters, or symbols."],
-             "tacni": [true, false, false, false],
-             "grananje": [6, 5, 5, 5]
-           },
-           {
-             "redni": 5,
-             "tekst": "Choose the example of information among the options below.",
-             "slika": "",
-             "odgovori": ["5", "0.142857", "Milan received grade 5 in English.", "2E+77232917-1"],
-             "tacni": [false, false, true, false],
-             "grananje": [-1, -1, 6, -1]
-           }
-         ]  
-       },
-       
-       {
-         "nazivDelaLekcije": "Computer Science and Informatics",
-         "teorija": 
-         [
-           {
-             "tekst": "Informatics is the science of information, the practice of information processing, and the engineering of information systems. Informatics studies the structure, algorithms, behavior, and interactions of natural and artificial systems that store, process, access and communicate information.",
-             "slika": "images/informatika.png",
-             "video": ""
-           },
-           {
-             "tekst": "Computer science deals with studying the theory and practice of computing processes.<br><br>Computer science is the study of computers and computing as well as their theoretical and practical applications. (Britannica)",
-             "slika": "images/racunarstvo.png",
-             "video": ""
-           }
-         ],  
-         
-         "pitanja": [
-           {
-             "redni": 0,
-             "tekst": "Complete the sentence: ________________________ is the science of information, the practice of information processing, and the engineering of information systems. Informatics studies the structure, algorithms, behavior, and interactions of natural and artificial systems that store, process, access and communicate information.",
-             "slika": "",
-             "odgovori": ["Computer Science", "Informatics", "Computer", "Information"],
-             "tacni": [false, true, false, false],
-             "grananje": [-1, 1, -1, -1]
-           },
-           {
-             "redni": 1,
-             "tekst": "Complete the sentence: ________________________ deals with studying the theory and practice of computing processes.",
-             "slika": "",
-             "odgovori": ["Computer Science", "Information transmission", "Informatics", "Computer system"],
-             "tacni": [true, false, false, false],
-             "grananje": [3, 2, 2, 2]
-           },
-           {
-             "redni": 2,
-             "tekst": "Complete the sentence: ________________________ deals with studying of computers and computing as well as their theoretical and practical applications.",
-             "slika": "",
-             "odgovori": ["Informatics", "Information transmission", "Computer Science", "Computer system"],
-             "tacni": [false, false, true, false],
-             "grananje": [-1, -1, 3, -1]
-           }
-         ]  
-       },
-       
-       {
-         "nazivDelaLekcije": "Computer (computer system, PC)",
-         "teorija": [
-           {
-             "tekst": "A computer (computer system, PC) is a machine that can be programmed to perform different kinds of tasks. It processes and stores information.<br><br>This concept includes desktop and portable (notebook, laptop) computers, smartphones, tablets, and embedded computers in cars, airplanes, refrigerators, etc.",
-             "slika": "",
-             "video": "videos/Embedded-Compurs.mp4"
-           }
-         ],  
-         
-         "pitanja": [
-           {
-             "redni": 0,
-             "tekst": "What is a computer (computer system, PC)?",
-             "slika": "images/computers_small.png",
-             "odgovori": ["It is a set of components.", "It is the same as informatics.", "A computer deals with collecting data.", "It is a machine that can be programmed to perform different kinds of tasks."],
-             "tacni": [false, false, false, true],
-             "grananje": [1, 1, 1, 2]
-           },
-           {
-             "redni": 1,
-             "tekst": "Complete the sentence: ________________________ is a machine that can be programmed to perform different kinds of tasks.",
-             "slika": "images/computers_small.png",
-             "odgovori": ["Informatics", "Computer", "Computer Science", "Information"],
-             "tacni": [false, true, false, false],
-             "grananje": [-1, 2, -1, -1]
-           },
-           {
-             "redni": 2,
-             "tekst": "What does the term computer include?",
-             "slika": "",
-             "odgovori": ["This term includes desktop and portable (notebook, laptop) computers, smartphones, tablets, embedded computers, etc.", "This term includes only desktop computers.", "This term includes only laptop computers.", "It includes only laptops and tablets."],
-             "tacni": [true, false, false, false],
-             "grananje": [3, -1, -1, -1]
-           }
-         ]  
-       }
-       
-      ] 
-         
+        {
+          "tekst": "After the end of World War I, a peace conference was held at the Versailles Palace near Paris. The conference began in January 1919 and lasted for a year.",
+          "slika": "images/Versaj.jpg",
+          "video": ""
+        },
+
+        {
+          "tekst": "At the conference, the leading role was taken by the victorious great powers: France, Great Britain, the USA, Italy, and Japan. U.S. President Woodrow Wilson advocated for a lasting and just peace.",
+          "slika": "images/big_four.jpg",
+          "video": ""
+        }
+      ],
+
+      "pitanja":
+      [
+        {
+          "redni": 0,
+          "tekst": "Where was the peace conference held in 1919 after World War I?",
+          "slika": "",
+          "odgovori": ["In London", "In Versailles near Paris", "In Berlin", "In Moscow"],
+          "tacni": [false, true, false, false],
+          "grananje": [1, 2, 1, 1]
+        },
+
+        {
+          "redni": 1,
+          "tekst": "When did the Versailles Conference begin?",
+          "slika": "",
+          "odgovori": ["In 1914", "In 1918", "In 1919", "In 1925"],
+          "tacni": [false, false, true, false],
+          "grananje": [-1, -1, 2, -1]
+        },
+
+        {
+          "redni": 2,
+          "tekst": "Which countries led the conference?",
+          "slika": "",
+          "odgovori": ["France, Britain, USA, Italy, and Japan", "Only France and Britain", "Russia and Germany", "Only USA"],
+          "tacni": [true, false, false, false],
+          "grananje": [3, -1, -1, -1]
+        },
+
+        {
+          "redni": 3,
+          "tekst": "Which U.S. president advocated for a lasting and just peace?",
+          "slika": "images/Woodrow_Wilson.jpg",
+          "odgovori": ["Abraham Lincoln", "Woodrow Wilson", "Roosevelt", "Truman"],
+          "tacni": [false, true, false, false],
+          "grananje": [4, 5, 4, 4]
+        },
+
+        {
+          "redni": 4,
+          "tekst": "Was Russia allowed to participate in the conference?",
+          "slika": "",
+          "odgovori": ["Yes", "No"],
+          "tacni": [false, true],
+          "grananje": [-1, 5]
+        }
+      ]
     },
-    
+
+    {
+      "nazivDelaLekcije": "Punishments for Germany",
+
+      "teorija":
+      [
+        {
+          "tekst": "At the Versailles Conference, Germany was declared the main culprit for the war. Because of this, it was severely punished. Germany considered the Peace Treaty unjust. It accepted it, but with protests. Other countries, such as Italy, Hungary, and Bulgaria, were also dissatisfied. All these countries wanted border changes and new agreements.",
+          "slika": "images/Nemacka_protesti_1919.jpg",
+          "video": ""
+        },
+
+        {
+          "tekst": "Germany lost its colonies, had to pay war reparations, and was forbidden to have large armaments. It was allowed only 100,000 lightly armed soldiers.",
+          "slika": "images/mapa_Evrope_1919.jpg",
+          "video": ""
+        },
+
+        {
+          "tekst": "The Ruhr and Saar regions were occupied by France and Belgium in order to collect reparations from local industry and mines.",
+          "slika": "images/ruhr_saar1920.jpg",
+          "video": ""
+        }
+      ],
+
+      "pitanja":
+      [
+        {
+          "redni": 0,
+          "tekst": "How was Germany designated at the Versailles Conference?",
+          "slika": "",
+          "odgovori": ["As the victor of the war", "As the main culprit for the war", "As a neutral state", "As an ally of France"],
+          "tacni": [false, true, false, false],
+          "grananje": [1, 2, 1, 1]
+        },
+
+        {
+          "redni": 1,
+          "tekst": "What did Germany lose after the war?",
+          "slika": "",
+          "odgovori": ["All colonies", "Only Berlin", "Only the army", "It lost nothing"],
+          "tacni": [true, false, false, false],
+          "grananje": [2, -1, -1, -1]
+        },
+
+        {
+          "redni": 2,
+          "tekst": "How many soldiers were allowed to Germany?",
+          "slika": "",
+          "odgovori": ["One million soldiers", "500,000 soldiers", "100,000 soldiers", "It was not allowed to have an army"],
+          "tacni": [false, false, true, false],
+          "grananje": [3, 3, 4, 3]
+        },
+
+        {
+          "redni": 3,
+          "tekst": "Did Germany have to pay war reparations?",
+          "slika": "",
+          "odgovori": ["Yes", "No"],
+          "tacni": [true, false],
+          "grananje": [4, -1]
+        },
+
+        {
+          "redni": 4,
+          "tekst": "Which regions were occupied by France and Belgium?",
+          "slika": "",
+          "odgovori": ["Bavaria and Berlin", "Ruhr and Saar", "Prussia and Hamburg", "Saxony and Munich"],
+          "tacni": [false, true, false, false],
+          "grananje": [5, 6, 5, 5]
+        },
+
+        {
+          "redni": 5,
+          "tekst": "Why did France and Belgium occupy Ruhr and Saar?",
+          "slika": "",
+          "odgovori": ["To expand territory", "To collect war reparations", "To create a new state", "To help Germany"],
+          "tacni": [false, true, false, false],
+          "grananje": [-1, 6, -1, -1]
+        }
+      ]
+    },
+
+
+
+    {
+      "nazivDelaLekcije": "Consequences of the Treaty of Versailles",
+
+      "teorija":
+      [
+        {
+          "tekst": "From 1919 to 1933, Germany was called the Weimar Republic, because it was proclaimed in the town of Weimar.",
+          "slika": "images/German_losses_after_WWI.png",
+          "video": ""
+        },
+
+        {
+          "tekst": "After the war, four great empires disappeared: the Russian, Austro-Hungarian, Ottoman, and German Empires. New states emerged – Finland, Latvia, Lithuania, Estonia, Poland, Czechoslovakia, the Kingdom of Serbs, Croats and Slovenes, and the USSR (1922).",
+          "slika": "",
+          "video": ""
+        }
+      ],
+
+      "pitanja":
+      [
+        {
+          "redni": 0,
+          "tekst": "How did the Germans perceive the Treaty of Versailles?",
+          "slika": "",
+          "odgovori": ["As just", "As unjust", "As irrelevant", "As a victory"],
+          "tacni": [false, true, false, false],
+          "grananje": [1, 2, 1, 1]
+        },
+
+        {
+          "redni": 1,
+          "tekst": "Which countries were dissatisfied with the Treaty of Versailles?",
+          "slika": "",
+          "odgovori": ["Italy, Hungary, and Bulgaria", "Only France", "Only USA", "No country"],
+          "tacni": [true, false, false, false],
+          "grananje": [2, -1, -1, -1]
+        },
+
+        {
+          "redni": 2,
+          "tekst": "How many great empires disappeared after World War I?",
+          "slika": "",
+          "odgovori": ["Two", "Three", "Four", "Five"],
+          "tacni": [false, false, true, false],
+          "grananje": [3, 3, 4, 3]
+        },
+
+        {
+          "redni": 3,
+          "tekst": "Which empire did NOT disappear after World War I?",
+          "slika": "",
+          "odgovori": ["Russian", "French", "Ottoman", "German"],
+          "tacni": [false, true, false, false],
+          "grananje": [-1, 4, -1, -1]
+        },
+
+        {
+          "redni": 4,
+          "tekst": "Which new state was created after World War I?",
+          "slika": "",
+          "odgovori": ["Kingdom of Serbs, Croats and Slovenes", "Roman Empire", "Byzantium", "Sparta"],
+          "tacni": [true, false, false, false],
+          "grananje": [5, -1, -1, -1]
+        },
+
+        {
+          "redni": 5,
+          "tekst": "What was Germany called from 1919 to 1933?",
+          "slika": "",
+          "odgovori": ["Third Reich", "Weimar Republic", "Prussia", "Holy Roman Empire"],
+          "tacni": [false, true, false, false],
+          "grananje": [6, 7, 6, 6]
+        },
+
+        {
+          "redni": 6,
+          "tekst": "Why was Germany called the Weimar Republic?",
+          "slika": "",
+          "odgovori": ["After the town of Weimar where the republic was proclaimed", "After the German emperor", "After the French president", "After a  military alliance"],
+          "tacni": [true, false, false, false],
+          "grananje": [7, -1, -1, -1]
+        }
+      ]
+    }
+  ]
+},
+        
 
     "de": 
     {
