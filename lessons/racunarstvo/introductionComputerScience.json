@@ -511,168 +511,249 @@
 },
         
 
-    "de": 
+"de":
+{
+  "naslov": "Der Versailler Frieden",
+  "naslovProzora": "Programmiertes Lernen",
+
+  "deloviLekcije":
+  [
+
     {
-      "naslov": "Einführung in die Informatik und Computerwissenschaft",
-      "naslovProzora": "Programmiertes Lernen",
-    
-      "deloviLekcije":
+      "nazivDelaLekcije": "Die Versailler Konferenz",
+
+      "teorija":
       [
-       {
-         "nazivDelaLekcije": "Daten und Informationen", 
-         "teorija":     
-         [
-           {
-             "tekst": "Ein Datum ist eine Aufzeichnung einer Tatsache, die normalerweise aus Zahlen, Buchstaben oder Symbolen besteht.<br><br>Zum Beispiel ist die Zahl 4 ein Datum. Ein Datum kann auf verschiedene Arten interpretiert werden. Die Zahl 4 kann eine Schulnote, eine Entfernung von 4 Kilometern usw. darstellen.",
-             "slika": "images/podatak50.png",
-             "video": ""
-           },
-           {
-             "tekst": "Information ist eine Menge von Daten, die auf eine bestimmte Weise interpretiert wurden.<br><br>Zum Beispiel: \"Peter hat in Geografie die Note 5 bekommen.\" In diesem Satz wird der Zahl 5 eine Bedeutung gegeben – sie wurde interpretiert – und das macht sie zu einer Information.<br>50 - Daten. Die Masse des Gewichts beträgt 50 kg - Information.",
-             "slika": "images/informacija.png",
-             "video": ""
-           }
-         ],  
-     
-         "pitanja": 
-         [
-           {
-             "redni": 0,
-             "tekst": "Was sind Daten?",
-             "slika": "images/podatak50.png",
-             "odgovori": ["Wenn wir wissen, dass eine Entfernung 4 Kilometer beträgt.", "Zum Beispiel, wenn wir wissen, dass Peter in Geografie die Note 5 bekommen hat.", "Eine Menge von Daten, die auf eine bestimmte Weise interpretiert wurden.", "Eine Aufzeichnung einer Tatsache, die normalerweise aus Zahlen, Buchstaben oder Symbolen besteht."],
-             "tacni": [false, false, false, true],
-             "grananje": [1, 1, 2, 3]
-           },
-           {
-             "redni": 1,
-             "tekst": "Wählen Sie das Beispiel für Daten aus den untenstehenden Optionen.",
-             "slika": "",
-             "odgovori": ["Die Zahl 3 ist größer als 2.", "Die Summe von 3 und 2 ist gleich 5.", "Inform@t!k@12345", "Frankreich liegt in Europa"],
-             "tacni": [false, false, true, false],
-             "grananje": [2, 2, 3, 2]
-           },
-           {
-             "redni": 2,
-             "tekst": "Wählen Sie das Beispiel für Daten aus den untenstehenden Optionen.",
-             "slika": "",
-             "odgovori": ["Peter hat in Geografie die Note 5 bekommen.", "4", "Bildung ist nützlich.", "Ich beantworte gerade Fragen."],
-             "tacni": [false, true, false, false],
-             "grananje": [-1, 3, -1, -1]
-           },
-           {
-             "redni": 3,
-             "tekst": "Wählen Sie das Beispiel für Information aus den untenstehenden Optionen.",
-             "slika": "images/informacija_mala.png",
-             "odgovori": ["4", "Daten", "Die Zahl Pi, d. h. &pi; in der Mathematik, hat einen ungefähren Wert von 3.14", "Stromversorgung"],
-             "tacni": [false, false, true, false],
-             "grananje": [4, 4, 6, 4]
-           },
-           {
-             "redni": 4,
-             "tekst": "Was ist Information?",
-             "slika": "images/informacija_mala.png",
-             "odgovori": ["Eine Menge von Daten, die auf eine bestimmte Weise interpretiert wurden.", "5", "50", "Eine Aufzeichnung einer Tatsache, die normalerweise aus Zahlen, Buchstaben oder Symbolen besteht."],
-             "tacni": [true, false, false, false],
-             "grananje": [6, 5, 5, 5]
-           },
-           {
-             "redni": 5,
-             "tekst": "Wählen Sie das Beispiel für Information aus den untenstehenden Optionen.",
-             "slika": "",
-             "odgovori": ["5", "0.142857", "Milan hat in Englisch die Note 5 bekommen.", "2E+77232917-1"],
-             "tacni": [false, false, true, false],
-             "grananje": [-1, -1, 6, -1]
-           }
-         ]
-       },
-       
-       {
-         "nazivDelaLekcije": "Informatik und Computerwissenschaft",
-         "teorija": 
-         [
-           {
-             "tekst": "Die Informatik ist die Wissenschaft von der Information, die Praxis der Informationsverarbeitung und die Technik der Informationssysteme. Sie untersucht die Struktur, Algorithmen, das Verhalten und die Interaktionen natürlicher und künstlicher Systeme, die Informationen speichern, verarbeiten, zugreifen und kommunizieren.",
-             "slika": "images/informatika.png",
-             "video": ""
-           },
-           {
-             "tekst": "Die Computerwissenschaft beschäftigt sich mit dem Studium der Theorie und Praxis von Rechenprozessen.<br><br>Die Computerwissenschaft ist das Studium von Computern und dem Rechnen sowie ihrer theoretischen und praktischen Anwendungen. (Britannica)",
-             "slika": "images/racunarstvo.png",
-             "video": ""
-           }
-         ],  
-     
-         "pitanja": [
-           {
-             "redni": 0,
-             "tekst": "Vervollständigen Sie den Satz: ________________________ ist die Wissenschaft von der Information, die Praxis der Informationsverarbeitung und die Technik der Informationssysteme. Die Informatik untersucht die Struktur, Algorithmen, das Verhalten und die Interaktionen natürlicher und künstlicher Systeme, die Informationen speichern, verarbeiten, zugreifen und kommunizieren.",
-             "slika": "",
-             "odgovori": ["Computerwissenschaft", "Informatik", "Computer", "Information"],
-             "tacni": [false, true, false, false],
-             "grananje": [-1, 1, -1, -1]
-           },
-           {
-             "redni": 1,
-             "tekst": "Vervollständigen Sie den Satz: ________________________ beschäftigt sich mit dem Studium der Theorie und Praxis von Rechenprozessen.",
-             "slika": "",
-             "odgovori": ["Computerwissenschaft", "Informationsübertragung", "Informatik", "Computersystem"],
-             "tacni": [true, false, false, false],
-             "grananje": [3, 2, 2, 2]
-           },
-           {
-             "redni": 2,
-             "tekst": "Vervollständigen Sie den Satz: ________________________ beschäftigt sich mit dem Studium von Computern und dem Rechnen sowie deren theoretischen und praktischen Anwendungen.",
-             "slika": "",
-             "odgovori": ["Informatik", "Informationsübertragung", "Computerwissenschaft", "Computersystem"],
-             "tacni": [false, false, true, false],
-             "grananje": [-1, -1, 3, -1]
-           }
-         ]  
-       },
-        
-       {
-         "nazivDelaLekcije": "Computer (Computersystem, PC)",
-         "teorija": [
-           {
-             "tekst": "Ein Computer (Computersystem, PC) ist eine Maschine, die programmiert werden kann, um verschiedene Aufgaben zu erfüllen. Er verarbeitet und speichert Informationen.<br><br>Zu diesem Begriff gehören Desktop- und tragbare Computer (Notebook, Laptop), Smartphones, Tablets und eingebettete Computer in Autos, Flugzeugen, Kühlschränken usw.",
-             "slika": "",
-             "video": "videos/Embedded-Compurs.mp4"
-           }
-         ],  
-         
-         "pitanja": [
-           {
-             "redni": 0,
-             "tekst": "Was ist ein Computer (Computersystem, PC)?",
-             "slika": "images/computers_small.png",
-             "odgovori": ["Es ist eine Menge von Komponenten.", "Es ist dasselbe wie Informatik.", "Ein Computer befasst sich mit dem Sammeln von Daten.", "Es ist eine Maschine, die programmiert werden kann, um verschiedene Aufgaben zu erfüllen."],
-             "tacni": [false, false, false, true],
-             "grananje": [1, 1, 1, 2]
-           },
-           {
-             "redni": 1,
-             "tekst": "Vervollständigen Sie den Satz: ________________________ ist eine Maschine, die programmiert werden kann, um verschiedene Aufgaben zu erfüllen.",
-             "slika": "images/computers_small.png",
-             "odgovori": ["Informatik", "Computer", "Computerwissenschaft", "Information"],
-             "tacni": [false, true, false, false],
-             "grananje": [-1, 2, -1, -1]
-           },
-           {
-             "redni": 2,
-             "tekst": "Was umfasst der Begriff Computer?",
-             "slika": "",
-             "odgovori": ["Zu diesem Begriff gehören Desktop- und tragbare Computer (Notebook, Laptop), Smartphones, Tablets, eingebettete Computer usw.", "Dieser Begriff umfasst nur Desktop-Computer.", "Dieser Begriff umfasst nur Laptops.", "Er umfasst nur Laptops und Tablets."],
-             "tacni": [true, false, false, false],
-             "grananje": [3, -1, -1, -1]
-           }
-         ] 
-       }
-       
-      ]   
-      
+        {
+          "tekst": "Nach dem Ende des Ersten Weltkriegs fand im Schloss Versailles bei Paris eine Friedenskonferenz statt. Die Konferenz begann im Januar 1919 und dauerte ein Jahr.",
+          "slika": "images/Versaj.jpg",
+          "video": ""
+        },
+
+        {
+          "tekst": "Auf der Konferenz führten die Siegermächte Frankreich, Großbritannien, die USA, Italien und Japan das Wort. Der Präsident der USA, Woodrow Wilson, setzte sich für einen dauerhaften und gerechten Frieden ein.",
+          "slika": "images/big_four.jpg",
+          "video": ""
+        }
+      ],
+
+      "pitanja":
+      [
+        {
+          "redni": 0,
+          "tekst": "Wo fand 1919 die Friedenskonferenz nach dem Ersten Weltkrieg statt?",
+          "slika": "",
+          "odgovori": ["In London", "In Versailles bei Paris", "In Berlin", "In Moskau"],
+          "tacni": [false, true, false, false],
+          "grananje": [1, 2, 1, 1]
+        },
+
+        {
+          "redni": 1,
+          "tekst": "Wann begann die Versailler Konferenz?",
+          "slika": "",
+          "odgovori": ["Im Jahr 1914", "Im Jahr 1918", "Im Jahr 1919", "Im Jahr 1925"],
+          "tacni": [false, false, true, false],
+          "grananje": [-1, -1, 2, -1]
+        },
+
+        {
+          "redni": 2,
+          "tekst": "Welche Staaten führten auf der Konferenz das Wort?",
+          "slika": "",
+          "odgovori": ["Frankreich, Großbritannien, USA, Italien und Japan", "Nur Frankreich und Großbritannien", "Russland und Deutschland", "Nur die USA"],
+          "tacni": [true, false, false, false],
+          "grananje": [3, -1, -1, -1]
+        },
+
+        {
+          "redni": 3,
+          "tekst": "Welcher Präsident der USA setzte sich für einen dauerhaften und gerechten Frieden ein?",
+          "slika": "images/Woodrow_Wilson.jpg",
+          "odgovori": ["Abraham Lincoln", "Woodrow Wilson", "Roosevelt", "Truman"],
+          "tacni": [false, true, false, false],
+          "grananje": [4, 5, 4, 4]
+        },
+
+        {
+          "redni": 4,
+          "tekst": "War Russland die Teilnahme an der Konferenz erlaubt?",
+          "slika": "",
+          "odgovori": ["Ja", "Nein"],
+          "tacni": [false, true],
+          "grananje": [-1, 5]
+        }
+      ]
     },
-    
+
+    {
+      "nazivDelaLekcije": "Strafen für Deutschland",
+
+      "teorija":
+      [
+        {
+          "tekst": "Auf der Versailler Konferenz wurde Deutschland als Hauptschuldiger des Krieges erklärt. Deshalb wurde es schwer bestraft. Deutschland hielt den Friedensvertrag für ungerecht. Es akzeptierte ihn, jedoch unter Protesten. Auch andere Staaten wie Italien, Ungarn und Bulgarien waren unzufrieden. Alle diese Staaten wollten Grenzänderungen und neue Abkommen.",
+          "slika": "images/Nemacka_protesti_1919.jpg",
+          "video": ""
+        },
+
+        {
+          "tekst": "Deutschland verlor seine Kolonien, musste Kriegsentschädigungen zahlen und durfte keine große Bewaffnung besitzen. Erlaubt waren nur 100 Tausend leicht bewaffnete Soldaten.",
+          "slika": "images/mapa_Evrope_1919.jpg",
+          "video": ""
+        },
+
+        {
+          "tekst": "Die Gebiete Ruhr und Saar wurden von Frankreich und Belgien besetzt, damit sie dort aus der Industrie und den Bergwerken Kriegsentschädigungen einziehen konnten.",
+          "slika": "images/ruhr_saar1920.jpg",
+          "video": ""
+        }
+      ],
+
+      "pitanja":
+      [
+        {
+          "redni": 0,
+          "tekst": "Wie wurde Deutschland auf der Versailler Konferenz bezeichnet?",
+          "slika": "",
+          "odgovori": ["Als Sieger des Krieges", "Als Hauptschuldiger des Krieges", "Als neutraler Staat", "Als Verbündeter Frankreichs"],
+          "tacni": [false, true, false, false],
+          "grananje": [1, 2, 1, 1]
+        },
+
+        {
+          "redni": 1,
+          "tekst": "Was verlor Deutschland nach dem Krieg?",
+          "slika": "",
+          "odgovori": ["Alle Kolonien", "Nur Berlin", "Nur das Heer", "Es verlor nichts"],
+          "tacni": [true, false, false, false],
+          "grananje": [2, -1, -1, -1]
+        },
+
+        {
+          "redni": 2,
+          "tekst": "Wie viele Soldaten waren Deutschland erlaubt?",
+          "slika": "",
+          "odgovori": ["Eine Million Soldaten", "500 Tausend Soldaten", "100 Tausend Soldaten", "Es durfte keine Armee haben"],
+          "tacni": [false, false, true, false],
+          "grananje": [3, 3, 4, 3]
+        },
+
+        {
+          "redni": 3,
+          "tekst": "Musste Deutschland Kriegsentschädigungen zahlen?",
+          "slika": "",
+          "odgovori": ["Ja", "Nein"],
+          "tacni": [true, false],
+          "grananje": [4, -1]
+        },
+
+        {
+          "redni": 4,
+          "tekst": "Welche Gebiete wurden von Frankreich und Belgien besetzt?",
+          "slika": "",
+          "odgovori": ["Bayern und Berlin", "Ruhr und Saar", "Preußen und Hamburg", "Sachsen und München"],
+          "tacni": [false, true, false, false],
+          "grananje": [5, 6, 5, 5]
+        },
+
+        {
+          "redni": 5,
+          "tekst": "Warum besetzten Frankreich und Belgien Ruhr und Saar?",
+          "slika": "",
+          "odgovori": ["Um ihr Gebiet zu erweitern", "Um Kriegsentschädigungen einzuziehen", "Um einen neuen Staat zu gründen", "Um Deutschland zu helfen"],
+          "tacni": [false, true, false, false],
+          "grananje": [-1, 6, -1, -1]
+        }
+      ]
+    },
+
+    {
+      "nazivDelaLekcije": "Folgen des Versailler Friedens",
+
+      "teorija":
+      [
+        {
+          "tekst": "Von 1919 bis 1933 wurde Deutschland Weimarer Republik genannt, weil die Republik in der kleinen Stadt Weimar ausgerufen wurde.",
+          "slika": "images/German_losses_after_WWI.png",
+          "video": ""
+        },
+
+        {
+          "tekst": "Nach dem Krieg verschwanden vier große Reiche: das Russische, das Österreichisch-Ungarische, das Osmanische und das Deutsche Reich. Neue Staaten entstanden – Finnland, Lettland, Litauen, Estland, Polen, die Tschechoslowakei, das Königreich SHS und die UdSSR (1922).",
+          "slika": "",
+          "video": ""
+        }
+      ],
+
+      "pitanja":
+      [
+        {
+          "redni": 0,
+          "tekst": "Wie erlebten die Deutschen den Versailler Frieden?",
+          "slika": "",
+          "odgovori": ["Als gerecht", "Als ungerecht", "Als unwichtig", "Als Sieg"],
+          "tacni": [false, true, false, false],
+          "grananje": [1, 2, 1, 1]
+        },
+
+        {
+          "redni": 1,
+          "tekst": "Welche Staaten waren mit dem Versailler Frieden unzufrieden?",
+          "slika": "",
+          "odgovori": ["Italien, Ungarn und Bulgarien", "Nur Frankreich", "Nur die USA", "Kein Staat"],
+          "tacni": [true, false, false, false],
+          "grananje": [2, -1, -1, -1]
+        },
+
+        {
+          "redni": 2,
+          "tekst": "Wie viele große Reiche verschwanden nach dem Ersten Weltkrieg?",
+          "slika": "",
+          "odgovori": ["Zwei", "Drei", "Vier", "Fünf"],
+          "tacni": [false, false, true, false],
+          "grananje": [3, 3, 4, 3]
+        },
+
+        {
+          "redni": 3,
+          "tekst": "Welches Reich verschwand NICHT nach dem Ersten Weltkrieg?",
+          "slika": "",
+          "odgovori": ["Das Russische", "Das Französische", "Das Osmanische", "Das Deutsche"],
+          "tacni": [false, true, false, false],
+          "grananje": [-1, 4, -1, -1]
+        },
+
+        {
+          "redni": 4,
+          "tekst": "Welcher neue Staat entstand nach dem Ersten Weltkrieg?",
+          "slika": "",
+          "odgovori": ["Königreich SHS", "Das Römische Reich", "Byzanz", "Sparta"],
+          "tacni": [true, false, false, false],
+          "grananje": [5, -1, -1, -1]
+        },
+
+        {
+          "redni": 5,
+          "tekst": "Wie hieß Deutschland von 1919 bis 1933?",
+          "slika": "",
+          "odgovori": ["Drittes Reich", "Weimarer Republik", "Preußen", "Heiliges Römisches Reich"],
+          "tacni": [false, true, false, false],
+          "grananje": [6, 7, 6, 6]
+        },
+
+        {
+          "redni": 6,
+          "tekst": "Warum wurde Deutschland Weimarer Republik genannt?",
+          "slika": "",
+          "odgovori": ["Nach der Stadt Weimar, wo die Republik ausgerufen wurde", "Nach dem deutschen Kaiser", "Nach dem französischen Präsidenten", "Nach einem Militärbündnis"],
+          "tacni": [true, false, false, false],
+          "grananje": [7, -1, -1, -1]
+        }
+      ]
+    }
+  ]
+},    
 
     "it": 
     {
