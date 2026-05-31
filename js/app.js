@@ -1,8 +1,8 @@
 let currentLanguage = "sr";  //sr ili en za sada, currentLanguage i ostale su globalne promenljive
-let currentLessonFile = "racunarstvo/introductionComputerScience.json"; //osnove_racunara.json ili computer_basics.json za sada ili lessons/racunarstvo/introductionComputerScience.json
+let currentLessonFile = "istorija/versajski-mir/versajski-mir.json"; // ili racunarstvo/introductionComputerScience.json
 let lessonData = null;
 
-// stanje renderera - NOVO 02.maj 23_58
+// stanje renderera - NOVO 31.maj 22_03
 let deoIndex = 0;      // koji deo lekcije
 let teorijaIndex = 0; // koja teorija u tom delu
 
