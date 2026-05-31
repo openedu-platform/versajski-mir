@@ -190,7 +190,7 @@
 
         {
           "tekst": "Posle rata nestala su četiri velika carstva: Rusko, Austro-Ugarsko, Osmansko i Nemačko carstvo. Nastaju nove države - Finska, Latvija, Litva, Estonija, Poljska, Čehoslovačka, Kraljevina SHS i SSSR (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -434,7 +434,7 @@
 
         {
           "tekst": "After the war, four great empires disappeared: the Russian, Austro-Hungarian, Ottoman, and German Empires. New states emerged – Finland, Latvia, Lithuania, Estonia, Poland, Czechoslovakia, the Kingdom of Serbs, Croats and Slovenes, and the USSR (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -480,7 +480,7 @@
         {
           "redni": 4,
           "tekst": "Which new state was created after World War I?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Kingdom of Serbs, Croats and Slovenes", "Roman Empire", "Byzantium", "Sparta"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
@@ -678,7 +678,7 @@
 
         {
           "tekst": "Nach dem Krieg verschwanden vier große Reiche: das Russische, das Österreichisch-Ungarische, das Osmanische und das Deutsche Reich. Neue Staaten entstanden – Finnland, Lettland, Litauen, Estland, Polen, die Tschechoslowakei, das Königreich SHS und die UdSSR (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -724,7 +724,7 @@
         {
           "redni": 4,
           "tekst": "Welcher neue Staat entstand nach dem Ersten Weltkrieg?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Königreich SHS", "Das Römische Reich", "Byzanz", "Sparta"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
@@ -923,7 +923,7 @@
 
         {
           "tekst": "Dopo la guerra scomparvero quattro grandi imperi: l’Impero russo, austro-ungarico, ottomano e tedesco. Nacquero nuovi stati: Finlandia, Lettonia, Lituania, Estonia, Polonia, Cecoslovacchia, il Regno SHS e l’URSS (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -969,7 +969,7 @@
         {
           "redni": 4,
           "tekst": "Quale nuovo stato nacque dopo la Prima guerra mondiale?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Regno SHS", "Impero romano", "Bisanzio", "Sparta"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
@@ -1071,8 +1071,6 @@
       ]
     },
 
-
-
     {
       "nazivDelaLekcije": "Les sanctions contre l’Allemagne",
 
@@ -1168,7 +1166,7 @@
 
         {
           "tekst": "Après la guerre, quatre grands empires ont disparu : l’Empire russe, austro-hongrois, ottoman et allemand. De nouveaux États sont apparus : la Finlande, la Lettonie, la Lituanie, l’Estonie, la Pologne, la Tchécoslovaquie, le Royaume SHS et l’URSS (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -1214,7 +1212,7 @@
         {
           "redni": 4,
           "tekst": "Quel nouvel État est apparu après la Première Guerre mondiale ?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Le Royaume SHS", "L’Empire romain", "Byzance", "Sparte"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
@@ -1415,7 +1413,7 @@
 
         {
           "tekst": "После войны исчезли четыре большие империи: Российская, Австро-Венгерская, Османская и Германская империи. Появились новые государства — Финляндия, Латвия, Литва, Эстония, Польша, Чехословакия, Королевство СХС и СССР (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -1461,7 +1459,7 @@
         {
           "redni": 4,
           "tekst": "Какое новое государство появилось после Первой мировой войны?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Королевство СХС", "Римская империя", "Византия", "Спарта"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
@@ -1658,7 +1656,7 @@
 
         {
           "tekst": "Después de la guerra desaparecieron cuatro grandes imperios: el Imperio ruso, austrohúngaro, otomano y alemán. Surgieron nuevos estados: Finlandia, Letonia, Lituania, Estonia, Polonia, Checoslovaquia, el Reino SHS y la URSS (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -1704,7 +1702,7 @@
         {
           "redni": 4,
           "tekst": "¿Qué nuevo estado surgió después de la Primera Guerra Mundial?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["El Reino SHS", "El Imperio romano", "Bizancio", "Esparta"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
@@ -1901,7 +1899,7 @@
 
         {
           "tekst": "Po vojni so izginila štiri velika cesarstva: rusko, avstro-ogrsko, osmansko in nemško cesarstvo. Nastale so nove države – Finska, Latvija, Litva, Estonija, Poljska, Češkoslovaška, Kraljevina SHS in ZSSR (1922).",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "video": ""
         }
       ],
@@ -1947,7 +1945,7 @@
         {
           "redni": 4,
           "tekst": "Katera nova država je nastala po prvi svetovni vojni?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Kraljevina SHS", "Rimsko cesarstvo", "Bizanc", "Sparta"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
