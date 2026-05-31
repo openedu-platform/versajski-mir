@@ -13,7 +13,7 @@
       "subject": "Istorija",
       "license": "copyright, ©, CC BY-NC",
       "version": "1.0",
-      "lesson_modified": "29. maj 2026 07:14"
+      "lesson_modified": "31. maj 2026 21:32"
     },
     
     "lesson_default_language": "sr",
@@ -39,8 +39,8 @@
 
         {
           "tekst": "Na konferenciji glavnu reč vodile su velike sile pobednice: Francuska, Velika Britanija, SAD, Italija i Japan. Predsednik SAD Vudro Vilson zalagao se za trajan i pravedan mir.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -285,8 +285,8 @@
 
         {
           "tekst": "At the conference, the leading role was taken by the victorious great powers: France, Great Britain, the USA, Italy, and Japan. U.S. President Woodrow Wilson advocated for a lasting and just peace.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -516,7 +516,6 @@
 
   "deloviLekcije":
   [
-
     {
       "nazivDelaLekcije": "Die Versailler Konferenz",
 
@@ -530,8 +529,8 @@
 
         {
           "tekst": "Auf der Konferenz führten die Siegermächte Frankreich, Großbritannien, die USA, Italien und Japan das Wort. Der Präsident der USA, Woodrow Wilson, setzte sich für einen dauerhaften und gerechten Frieden ein.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -760,7 +759,6 @@
 
   "deloviLekcije":
   [
-
     {
       "nazivDelaLekcije": "La Conferenza di Versailles",
 
@@ -774,8 +772,8 @@
 
         {
           "tekst": "Alla conferenza le principali potenze vincitrici furono Francia, Gran Bretagna, Stati Uniti, Italia e Giappone. Il presidente degli Stati Uniti Woodrow Wilson sosteneva una pace duratura e giusta.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -1006,7 +1004,6 @@
 
   "deloviLekcije":
   [
-
     {
       "nazivDelaLekcije": "La conférence de Versailles",
 
@@ -1020,8 +1017,8 @@
 
         {
           "tekst": "Lors de la conférence, les grandes puissances victorieuses étaient la France, la Grande-Bretagne, les États-Unis, l’Italie et le Japon. Le président des États-Unis Woodrow Wilson défendait une paix durable et juste.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -1254,7 +1251,6 @@
 
   "deloviLekcije":
   [
-
     {
       "nazivDelaLekcije": "Версальская конференция",
 
@@ -1268,8 +1264,8 @@
 
         {
           "tekst": "На конференции главную роль играли великие державы-победительницы: Франция, Великобритания, США, Италия и Япония. Президент США Вудро Вильсон выступал за прочный и справедливый мир.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -1500,7 +1496,6 @@
 
   "deloviLekcije":
   [
-
     {
       "nazivDelaLekcije": "La Conferencia de Versalles",
 
@@ -1514,8 +1509,8 @@
 
         {
           "tekst": "En la conferencia las principales potencias vencedoras fueron Francia, Gran Bretaña, Estados Unidos, Italia y Japón. El presidente de los Estados Unidos, Woodrow Wilson, defendía una paz duradera y justa.",
-          "slika": "images/big_four.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         }
       ],
 
@@ -1567,8 +1562,6 @@
         }
       ]
     },
-
-
 
     {
       "nazivDelaLekcije": "Castigos para Alemania",
@@ -1746,7 +1739,6 @@
 
   "deloviLekcije":
   [
-
     {
       "nazivDelaLekcije": "Versajska konferenca",
 
@@ -1754,8 +1746,8 @@
       [
         {
           "tekst": "Po koncu prve svetovne vojne je bila v dvorcu Versailles pri Parizu organizirana mirovna konferenca. Konferenca se je začela januarja 1919 in je trajala eno leto.",
-          "slika": "images/Versaj.jpg",
-          "video": ""
+          "slika": "",
+          "video": "videos/versajski-mir.mp4"
         },
 
         {
@@ -1813,8 +1805,6 @@
         }
       ]
     },
-
-
 
     {
       "nazivDelaLekcije": "Kazni za Nemčijo",
