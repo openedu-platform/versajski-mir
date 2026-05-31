@@ -236,7 +236,7 @@
         {
           "redni": 4,
           "tekst": "Koja nova država je nastala posle Prvog svetskog rata?",
-          "slika": "",
+          "slika": "images/scs_kingdom_provinces_1920_1922_sr.png",
           "odgovori": ["Kraljevina SHS", "Rimsko carstvo", "Vizantija", "Sparta"],
           "tacni": [true, false, false, false],
           "grananje": [5, -1, -1, -1]
