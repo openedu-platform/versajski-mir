@@ -1,5 +1,5 @@
 let currentLanguage = "sr";  //sr ili en za sada, currentLanguage i ostale su globalne promenljive
-let currentLessonFile = "istorija/versajski-mir/versajski-mir.json"; // ili racunarstvo/introductionComputerScience.json
+let currentLessonFile = "racunarstvo/introductionComputerScience.json"; // ili istorija/versajski-mir/versajski-mir.json
 let lessonData = null;
 
 // stanje renderera - NOVO 31.maj 22_03
