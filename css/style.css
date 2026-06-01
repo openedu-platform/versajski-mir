@@ -168,7 +168,11 @@
     margin: 0 6px;               /* manji razmak */
     flex-shrink: 0;              /* ne dozvoljava da separator "nestane" */
   }
-  
+
+  #languages {
+    align-items: right; /* poravnava zastavice na desno ka separatori */
+  } 
+    
   #controls img {
     width: 30px;
     height: 30px;
