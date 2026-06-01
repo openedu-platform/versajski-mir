@@ -159,7 +159,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;          /* mala razdaljina između elemenata */
-    flex-wrap: nowrap; /* zabrana prelaska u novi red */
+    /= flex-wrap: nowrap;  zabrana prelaska u novi red */
   } 
 
   .separator {
