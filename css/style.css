@@ -163,11 +163,12 @@
   } 
 
   .separator {
-    border-right: 3px solid #888; /* tanka linija */
+    border-right: 2px solid #888; /* tanka linija */
+    border-left: 2px solid #888; /* tanka linija */
     height: 24px;                /* niži separator */
                   /* margin: 0 6px;  manji razmak */
-    margin-left: 2px;
-    margin-right: 0;
+    /* margin-left: 2px; */
+    /* margin-right: 0; */
     flex-shrink: 0;              /* ne dozvoljava da separator "nestane" */
   }
   
