@@ -157,7 +157,7 @@
   #controls {
     display: flex;
     align-items: center;
-    justify-content: flex-end;  /* neke opcije: flex-start (levo), flex-end (desno), center (sredina) */
+    /* justify-content: flex-end; */   /* neke opcije: flex-start (levo), flex-end (desno), center (sredina) */
     gap: 3px;          /* mala razdaljina između elemenata */
     /= flex-wrap: nowrap;  zabrana prelaska u novi red */
   } 
@@ -171,7 +171,7 @@
 
   #languages {
     /* bilo ali nije bilo korektno align-items: right; /* poravnava zastavice na desno ka separatori */
-    justify-content: flex-end;
+    align-items: flex-end;
   } 
     
   #controls img {
