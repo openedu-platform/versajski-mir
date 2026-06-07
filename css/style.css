@@ -170,7 +170,8 @@
   }
 
   #languages {
-    align-items: right; /* poravnava zastavice na desno ka separatori */
+    /* bilo ali nije bilo korektno align-items: right; /* poravnava zastavice na desno ka separatori */
+    justify-content: flex-end;
   } 
     
   #controls img {
