@@ -157,7 +157,7 @@
   #controls {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;  /* neke opcije: flex-start (levo), flex-end (desno), center (sredina) */
     gap: 3px;          /* mala razdaljina između elemenata */
     /= flex-wrap: nowrap;  zabrana prelaska u novi red */
   } 
