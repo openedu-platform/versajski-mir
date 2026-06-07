@@ -105,7 +105,7 @@
     .icon-btn { /* ikona Mic za uključivanje ASR */
       border: 1px solid #aaa;
       padding: 4px 4px;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
       background: #f9f9f9;
     }
@@ -158,7 +158,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;          /* mala razdaljina između elemenata */
+    gap: 3px;          /* mala razdaljina između elemenata */
     /= flex-wrap: nowrap;  zabrana prelaska u novi red */
   } 
 
