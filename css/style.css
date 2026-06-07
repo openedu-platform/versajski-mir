@@ -180,12 +180,6 @@
     margin-right: 10px;
   }
 
-#languages {
-  display: flex;              /* aktivira flexbox */
-  justify-content: flex-end;  /* zastavice idu desno */
-  gap: 2px;                   /* razmak između zastavica */
-}
-
   #languages img {
     width: 32px;
     height: 20px;
