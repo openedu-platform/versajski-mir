@@ -154,26 +154,27 @@
     font-weight: bold;
   }
 
+  /* justify-content: flex-end; */   /* neke opcije: flex-start (levo), flex-end (desno), center (sredina) */
   #controls {
     display: flex;
-    align-items: center;
-    /* justify-content: flex-end; */   /* neke opcije: flex-start (levo), flex-end (desno), center (sredina) */
-    gap: 3px;          /* mala razdaljina između elemenata */
-    /= flex-wrap: nowrap;  zabrana prelaska u novi red */
-  } 
+    align-items: center;      /* vertikalno poravnanje */
+  }
 
   .separator {
     border-right: 3px solid #888; /* tanka linija */
     height: 24px;                /* niži separator */
-    margin: 0 3px;               /* manji razmak */
+    /* bilo je.. margin: 0 3px;       */        /* manji razmak */
+    margin-left: 3px; /* smanji po potrebi razmak od najdesnije zastavice*/
+    margin-right: 0;            /* uklanja nepotrebni razmak ka ikonama */
     flex-shrink: 0;              /* ne dozvoljava da separator "nestane" */
   }
 
   #languages {
-    /* bilo ali nije bilo korektno align-items: right; /* poravnava zastavice na desno ka separatori */
-    align-items: flex-end;
+    display: flex;              /* aktivira flexbox */
+    justify-content: flex-end;  /* zastavice idu desno */
+    gap: 2px;                   /* razmak između zastavica */
   } 
-    
+  
   #controls img {
     width: 30px;
     height: 30px;
@@ -181,15 +182,16 @@
     cursor: pointer;
     margin-right: 10px;
   }
+
   #languages img {
     width: 32px;
     height: 20px;
-    margin-right: 4px;
     cursor: pointer;
     vertical-align: middle;
     border: 2px solid transparent; /* podrazumevano nema bordure */
     border-radius: 6px; /* blago zaobljenje, po želji */
   }
+
   #languages img.active {
     border: 2px solid #007BFF; /* plava bordura kad je aktivan jezik */
     box-shadow: 0 0 5px rgba(0,123,255,0.6); /* blagi sjaj oko zastave */
