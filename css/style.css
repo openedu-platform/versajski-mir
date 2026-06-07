@@ -89,6 +89,7 @@
     max-width: 800px;
     max-height: 400px;
     margin: auto;
+    flex-shrink: 0;              /* ne dozvoljava da "nestanu" elementi */
   }
   img {
     max-width: 80%;
@@ -163,8 +164,8 @@
   } 
 
   .separator {
-    border-right: 2px solid #888; /* tanka linija */
-    border-left: 2px solid #888; /* tanka linija */
+    border-right: 3px solid #888; /* tanka linija */
+    border-left: 1px solid #888; /* tanka linija */
     height: 24px;                /* niži separator */
                   /* margin: 0 6px;  manji razmak */
     /* margin-left: 2px; */
@@ -181,12 +182,12 @@
   }
 
   #languages img {
-    width: 32px;
+    width: 30px;
     height: 20px;
     /* margin-right: 8px; */
     cursor: pointer;
     vertical-align: middle;
-    border: 2px solid transparent; /* podrazumevano nema bordure */
+    border: 1px solid transparent; /* podrazumevano nema bordure */
     border-radius: 6px; /* blago zaobljenje, po želji */
   }
 
